@@ -43,6 +43,12 @@ import imageSprStoryboarderDark from '~/assets/spr-storyboarder-dark.png';
 import imageSprStoryboarderLightLarge from '~/assets/spr-storyboarder-light-large.png';
 import imageSprStoryboarderLightPlaceholder from '~/assets/spr-storyboarder-light-placeholder.png';
 import imageSprStoryboarderLight from '~/assets/spr-storyboarder-light.png';
+import imageSeaweed1 from '~/assets/qqq.png';
+import imageSeaweed2 from '~/assets/adaam.jpg';
+import imageSeaweed3 from '~/assets/3.jpg';
+import imageSeaweed4 from '~/assets/4.png';
+import imageSeaweed5 from '~/assets/1-7.jpg';
+import imageSeaweed6 from '~/assets/1-8.png';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
 import { Link } from '~/components/link';
@@ -70,14 +76,22 @@ const EarthSection = lazy(() =>
   import('./earth').then(module => ({ default: module.EarthSection }))
 );
 
-const title = 'Designing the future of education';
-const description =
-  'I worked as the design lead on a major iteration of Smart Sparrow’s product. We took the platform in a bold new direction, focusing on becoming the best tool for learning designers.';
+const title = 'Seaweed Image Generation Using GANsn';
+const description = (
+  <>
+    Project Overview This project focuses on generating images of seaweed using Generative
+    Adversarial Networks (GANs). Similar to typical GAN architectures, it consists of two
+    main components: <br />
+    Generator: Creates synthetic seaweed images from random noise.
+    <br /> Discriminator: Distinguishes between real seaweed images and those created by
+    the generator.
+  </>
+);
 const roles = [
-  'Art Direction',
-  'UX and UI Design',
-  'Front End Development',
-  'Motion Design',
+  'Import and Setup',
+  'Model building',
+  'Training Process',
+  'Save Generated Images',
 ];
 
 export const meta = () => {
@@ -105,7 +119,7 @@ export const SmartSparrow = () => {
         <ProjectHeader
           title={title}
           description={description}
-          url="https://www.smartsparrow.com/"
+          url="https://github.com/Kh1606/Projects/tree/main/Seaweed%20-%20GAN%20model"
           roles={roles}
         />
         <ProjectSection padding="top">
@@ -115,8 +129,8 @@ export const SmartSparrow = () => {
               key={theme}
               srcSet={
                 isDark
-                  ? `${imageSprLessonBuilderDark} 1280w, ${imageSprLessonBuilderDarkLarge} 2560w`
-                  : `${imageSprLessonBuilderLight} 1280w, ${imageSprLessonBuilderLightLarge} 2560w`
+                  ? `${imageSeaweed1} 1280w, ${imageSeaweed1} 2560w`
+                  : `${imageSeaweed1} 1280w, ${imageSeaweed1} 2560w`
               }
               width={1280}
               height={800}
@@ -132,26 +146,71 @@ export const SmartSparrow = () => {
         </ProjectSection>
         <ProjectSection>
           <ProjectTextRow>
-            <ProjectSectionHeading>The problem</ProjectSectionHeading>
+            <ProjectSectionHeading>Imports and Setup</ProjectSectionHeading>
             <ProjectSectionText>
-              In 2017, Smart Sparrow began a project to build an entirely new platform to
-              from the ground up to serve as the most powerful tool for educators to
-              create online learning experiences. The old platform was built in Flash, and
-              there were a number of user experience problems to solve in the process of
-              moving the platform to Javascript. The primary goals for the project were
-              reducing barriers to collaboration, and making the platform both easier for
-              new users, but with plenty of room to scale for advanced users.
+              The project begins by importing necessary libraries, primarily using
+              TensorFlow to build and train the neural networks. Key components include:
+              <br />
+              <li>Layers: Dense, Conv2D, UpSampling2D</li>
+              <li>Optimizer: Adam</li> <br />
+              These are used to construct the generator and discriminator models.
             </ProjectSectionText>
           </ProjectTextRow>
+          <Image
+            key={theme}
+            srcSet={
+              isDark
+                ? `${imageSeaweed2} 1024w, ${imageSeaweed2} 2048w`
+                : `${imageSeaweed2} 1024w, ${imageSeaweed2} 2048w`
+            }
+            width={1024}
+            hright={800}
+            placeholder={
+              isDark
+                ? imageSprComponentsDarkPlaceholder
+                : imageSprComponentsLightPlaceholder
+            }
+            alt={`A set of ${theme} themed components for the aero design system`}
+            sizes="100vw"
+          />
         </ProjectSection>
         <ProjectSection light={isDark}>
           <ProjectSectionContent>
+            <ProjectTextRow>
+              <SegmentedControl
+                currentIndex={themes.indexOf(theme)}
+                onChange={handleThemeChange}
+              >
+                <SegmentedControlOption>Dark theme</SegmentedControlOption>
+                <SegmentedControlOption>Light theme</SegmentedControlOption>
+              </SegmentedControl>
+            </ProjectTextRow>
+            <ProjectTextRow>
+              <ProjectSectionHeading>Model Building</ProjectSectionHeading>
+              <ProjectSectionText>
+                Generator (build_generator())
+                <li>
+                  The generator takes a latent vector as input and uses Dense, Reshape,
+                  Conv2D, and UpSampling2D layers to progressively upscale the vector into
+                  an image of size 1024x1024.
+                </li>{' '}
+                <li>
+                  {' '}
+                  It starts from a small representation and increases the resolution step
+                  by step using UpSampling2D.
+                </li>
+                <li>
+                  The final layer uses a tanh activation function to generate RGB images
+                  with values in the range [-1, 1].
+                </li>
+              </ProjectSectionText>
+            </ProjectTextRow>
             <Image
               key={theme}
               srcSet={
                 isDark
-                  ? `${imageSprComponentsDark} 1024w, ${imageSprComponentsDarkLarge} 2048w`
-                  : `${imageSprComponentsLight} 1024w, ${imageSprComponentsLightLarge} 2048w`
+                  ? `${imageSeaweed3} 1024w, ${imageSeaweed3} 2048w`
+                  : `${imageSeaweed3} 1024w, ${imageSeaweed3} 2048w`
               }
               width={1024}
               hright={800}
@@ -164,35 +223,71 @@ export const SmartSparrow = () => {
               sizes="100vw"
             />
             <ProjectTextRow>
-              <SegmentedControl
-                currentIndex={themes.indexOf(theme)}
-                onChange={handleThemeChange}
-              >
-                <SegmentedControlOption>Dark theme</SegmentedControlOption>
-                <SegmentedControlOption>Light theme</SegmentedControlOption>
-              </SegmentedControl>
-            </ProjectTextRow>
-            <ProjectTextRow>
-              <ProjectSectionHeading>The aero design system</ProjectSectionHeading>
               <ProjectSectionText>
-                To streamline the design process across designers and engineers for such a
-                large project, it was important to lay the foundations with a strong,
-                flexible design system that could evolve during the product’s development
-                cycle. This would inform both the aesthetics and user experience across
-                the product itself as well as the website and marketing material.
+                Discriminator (build_discriminator())
+                <li>
+                  The discriminator takes an image as input and attempts to classify it as
+                  real or fake.
+                </li>{' '}
+                <li>
+                  {' '}
+                  It consists of a series of Conv2D layers with strides of 2, followed by
+                  LeakyReLU activations and dropout layers to reduce overfitting.
+                </li>
+                <li>
+                  The output layer uses a sigmoid activation function to produce a
+                  probability score indicating whether the input image is real or fake.
+                </li>
               </ProjectSectionText>
             </ProjectTextRow>
+            <Image
+              key={theme}
+              srcSet={
+                isDark
+                  ? `${imageSeaweed4} 1024w, ${imageSeaweed4} 2048w`
+                  : `${imageSeaweed4} 1024w, ${imageSeaweed4} 2048w`
+              }
+              width={1024}
+              hright={800}
+              placeholder={
+                isDark
+                  ? imageSprComponentsDarkPlaceholder
+                  : imageSprComponentsLightPlaceholder
+              }
+              alt={`A set of ${theme} themed components for the aero design system`}
+              sizes="100vw"
+            />
           </ProjectSectionContent>
         </ProjectSection>
         <ProjectSection>
           <ProjectSectionContent>
+            <ProjectTextRow>
+              <ProjectSectionHeading>Training Process</ProjectSectionHeading>
+              <ProjectSectionText>
+                The train_gan() function manages the training of both the discriminator
+                and generator.
+                <br /> Training Loop:
+                <li>
+                  In each iteration:
+                  <li style={{ paddingLeft: '40px' }}>
+                    The discriminator is trained on both real and generated images to
+                    minimize classification error for real images and maximize it for
+                    generated images.
+                  </li>{' '}
+                  <li style={{ paddingLeft: '40px' }}>
+                    The generator is trained via the combined model to produce images that
+                    the discriminator classifies as real.
+                  </li>
+                </li>{' '}
+              </ProjectSectionText>
+            </ProjectTextRow>
             <Image
               raised
               key={theme}
               srcSet={
                 isDark
-                  ? `${imageSprDesignSystemDark} 1280w, ${imageSprDesignSystemDarkLarge} 2560w`
-                  : `${imageSprDesignSystemLight} 1280w, ${imageSprDesignSystemLightLarge} 2560w`
+                  ? `${imageSeaweed5} 1280w, ${imageSeaweed5} 2560w`
+                  : `${imageSeaweed5} 1280w, ${imageSeaweed5} 2560w`
               }
               width={1280}
               height={800}
@@ -204,15 +299,6 @@ export const SmartSparrow = () => {
               alt="The homepage of the aero design system docs website linking to principles and components."
               sizes="100vw"
             />
-            <ProjectTextRow>
-              <ProjectSectionHeading>Design system docs</ProjectSectionHeading>
-              <ProjectSectionText>
-                A design system is useless if no one knows how to use it, so we put
-                together a comprehensive documentation website to cover principles, ux,
-                accessibility, and component guidelines for designers and engineers
-                working with the system.
-              </ProjectSectionText>
-            </ProjectTextRow>
           </ProjectSectionContent>
         </ProjectSection>
         <ThemeProvider theme="dark" data-invert>
@@ -232,29 +318,42 @@ export const SmartSparrow = () => {
             <ProjectSectionColumns width="full">
               <ProjectSectionContent width="full">
                 <ProjectTextRow width="s">
-                  <ProjectSectionHeading>Motion design</ProjectSectionHeading>
+                  <ProjectSectionHeading>Saving Generated Images</ProjectSectionHeading>
                   <ProjectSectionText>
-                    Animation was a core principle in making the authoring experience a
-                    more understandable process. Elements animate in ways that indicate
-                    the cause and effect of each interaction to improve the fluidity of
-                    the overall experience.
+                    This function generates and saves images produced by the generator
+                    during training.
+                    <br />
+                    <br />
+                    <li>
+                      {' '}
+                      Images are saved in PNG format, allowing the evaluation of the
+                      generator's performance at different training epochs.
+                    </li>
                   </ProjectSectionText>
                 </ProjectTextRow>
               </ProjectSectionContent>
               <Image
                 raised
-                className={styles.video}
-                srcSet={`${videoSprMotion} 1280w, ${videoSprMotionLarge} 2560w`}
+                key={theme}
+                srcSet={
+                  isDark
+                    ? `${imageSeaweed6} 1280w, ${imageSeaweed6} 2560w`
+                    : `${imageSeaweed6} 1280w, ${imageSeaweed6} 2560w`
+                }
                 width={1280}
                 height={800}
-                placeholder={videoSprMotionPlaceholder}
-                alt="A learning designer building and deploying an interactive lesson on volcanism using the app."
-                sizes={`(max-width: ${media.mobile}px) 100vw, 50vw`}
+                placeholder={
+                  isDark
+                    ? imageSprDesignSystemDarkPlaceholder
+                    : imageSprDesignSystemLightPlaceholder
+                }
+                alt="The homepage of the aero design system docs website linking to principles and components."
+                sizes="100vw"
               />
             </ProjectSectionColumns>
           </ProjectSection>
         </ThemeProvider>
-        <ProjectSection>
+        {/* <ProjectSection>
           <ProjectSectionContent>
             <ProjectTextRow>
               <ProjectSectionHeading>Encouraging adaptivity</ProjectSectionHeading>
@@ -340,187 +439,7 @@ export const SmartSparrow = () => {
             </div>
           </ProjectSectionColumns>
         </ProjectSection>
-        <ThemeProvider theme="dark" data-invert>
-          <Suspense>
-            <Earth
-              className={styles.earth}
-              hideMeshes={useMemo(
-                () => ['Atmosphere', 'EarthPartial', 'Chunk', 'EarthFull'],
-                []
-              )}
-              position={useMemo(() => [0, 0, 0], [])}
-              labels={useMemo(
-                () => [
-                  {
-                    position: [0.54, 0.19, 0.18],
-                    text: 'Pacific ring of fire',
-                    hidden: true,
-                  },
-                  {
-                    position: [0.47, -0.38, 0.04],
-                    text: 'Ruapehu',
-                    hidden: true,
-                  },
-                  {
-                    position: [0.22, 0.44, -0.35],
-                    text: 'St. Helens',
-                    hidden: true,
-                  },
-                  {
-                    position: [0.16, -0.06, 0.58],
-                    text: 'Krakatoa',
-                    hidden: true,
-                  },
-                  {
-                    position: [0.11, 0.2, -0.56],
-                    text: 'Parícutin',
-                    hidden: true,
-                  },
-                  {
-                    position: [0.52, 0.2, -0.23],
-                    text: 'Kīlauea',
-                    hidden: true,
-                  },
-                  {
-                    position: [-0.24, 0.75, 0.24],
-                    text: 'Mantle',
-                    delay: 800,
-                    hidden: true,
-                  },
-                  {
-                    position: [-0.24, 0.55, 0.24],
-                    text: 'Outer core',
-                    delay: 800,
-                    hidden: true,
-                  },
-                  {
-                    position: [-0.24, 0.35, 0.24],
-                    text: 'Inner core',
-                    delay: 800,
-                    hidden: true,
-                  },
-                ],
-                []
-              )}
-              scale={0.6}
-            >
-              <EarthSection
-                scrim
-                animations={['0:loop']}
-                camera={[0, 0, 1.5]}
-                meshes={['Atmosphere', 'EarthFull']}
-              >
-                <ProjectSection>
-                  <ProjectSectionContent>
-                    <ProjectTextRow center>
-                      <ProjectSectionHeading>
-                        Next-generation learning experiences
-                      </ProjectSectionHeading>
-                      <ProjectSectionText>
-                        The flexibility of the product allowed for developers to create
-                        engaging interactive experiences as highly configurable plugins
-                        that could then be used and manipulated by learning designers.
-                      </ProjectSectionText>
-                    </ProjectTextRow>
-                  </ProjectSectionContent>
-                </ProjectSection>
-              </EarthSection>
-              <EarthSection
-                animations={['0:loop']}
-                camera={[0, 0, 2.4]}
-                meshes={['Atmosphere', 'EarthFull']}
-              />
-              <EarthSection
-                animations={['0:loop']}
-                camera={[1.14, -1.39, 0.94]}
-                meshes={['Atmosphere', 'EarthFull']}
-              >
-                <ProjectSection>
-                  <ProjectSectionContent width="xl">
-                    <ProjectTextRow justify="end" width="s">
-                      <ProjectSectionHeading level={4} as="h3">
-                        Bringing 3D into learning
-                      </ProjectSectionHeading>
-                      <ProjectSectionText>
-                        One really cool example is the 3D screen plugin. Learning
-                        designers can load any model into it and then configure camera
-                        positions to animate to for each section.
-                      </ProjectSectionText>
-                    </ProjectTextRow>
-                  </ProjectSectionContent>
-                </ProjectSection>
-              </EarthSection>
-              <EarthSection
-                animations={['0:loop']}
-                camera={[1.17, 0.69, -1.47]}
-                meshes={['Atmosphere', 'EarthFull']}
-                labels={[
-                  'Pacific ring of fire',
-                  'Ruapehu',
-                  'St. Helens',
-                  'Krakatoa',
-                  'Parícutin',
-                  'Kīlauea',
-                ]}
-              >
-                <ProjectSection>
-                  <ProjectSectionContent width="xl">
-                    <ProjectTextRow justify="start" width="s">
-                      <ProjectSectionHeading level={4} as="h3">
-                        Interactivity
-                      </ProjectSectionHeading>
-                      <ProjectSectionText>
-                        Learners can then be directed to specific parts of the model and
-                        shown labels. They’re also able to click and drag to orbit around
-                        and freely explore at any time.
-                      </ProjectSectionText>
-                    </ProjectTextRow>
-                  </ProjectSectionContent>
-                </ProjectSection>
-              </EarthSection>
-              <EarthSection
-                animations={['0:loop']}
-                camera={[1.81, 0.51, 0.43]}
-                meshes={['Atmosphere', 'EarthFull']}
-                labels={[
-                  'Pacific ring of fire',
-                  'Ruapehu',
-                  'St. Helens',
-                  'Krakatoa',
-                  'Parícutin',
-                  'Kīlauea',
-                ]}
-              />
-              <EarthSection
-                animations={['0:loop']}
-                camera={[0.37, 1.02, 1.84]}
-                meshes={['EarthPartial', 'Chunk']}
-                labels={['Mantle', 'Outer core', 'Inner core']}
-              >
-                <ProjectSection>
-                  <ProjectSectionContent width="xl">
-                    <ProjectTextRow justify="end" width="s">
-                      <ProjectSectionHeading level={4} as="h3">
-                        Animation
-                      </ProjectSectionHeading>
-                      <ProjectSectionText>
-                        Learning designers can pick an animation included in the model to
-                        play or loop for any section without having to use any complex
-                        animation tools.
-                      </ProjectSectionText>
-                    </ProjectTextRow>
-                  </ProjectSectionContent>
-                </ProjectSection>
-              </EarthSection>
-              <EarthSection
-                scrimReverse
-                animations={['0:loop']}
-                camera={[0.37, 1.02, 1.84]}
-                meshes={['Atmosphere', 'EarthFull']}
-              />
-            </Earth>
-          </Suspense>
-        </ThemeProvider>
+      
         <ProjectSection>
           <ProjectSectionContent>
             <ProjectTextRow center centerMobile noMargin>
@@ -548,7 +467,7 @@ export const SmartSparrow = () => {
               </ProjectSectionText>
             </ProjectTextRow>
           </ProjectSectionContent>
-        </ProjectSection>
+        </ProjectSection> */}
       </ProjectContainer>
       <Footer />
     </>

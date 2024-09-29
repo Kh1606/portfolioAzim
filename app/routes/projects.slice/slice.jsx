@@ -1,26 +1,27 @@
 import sliceAnnotationLarge from '~/assets/slice-annotation-large.png';
 import sliceAnnotationPlaceholder from '~/assets/slice-annotation-placeholder.png';
 import sliceAnnotation from '~/assets/slice-annotation.png';
-import sliceAppLarge from '~/assets/slice-app-large.jpg';
-import sliceAppPlaceholder from '~/assets/slice-app-placeholder.jpg';
-import sliceApp from '~/assets/slice-app.jpg';
-import sliceBackgroundBarLarge from '~/assets/slice-background-bar-large.jpg';
-import sliceBackgroundBarPlaceholder from '~/assets/slice-background-bar-placeholder.jpg';
-import sliceBackgroundBar from '~/assets/slice-background-bar.jpg';
-import sliceBackgroundLarge from '~/assets/slice-background-large.jpg';
-import sliceBackgroundPlaceholder from '~/assets/slice-background-placeholder.jpg';
-import sliceBackground from '~/assets/slice-background.jpg';
-import sliceIrlPlaceholder from '~/assets/slice-irl-placeholder.jpg';
-import sliceIrl from '~/assets/slice-irl.jpg';
+import sliceAppLarge from '~/assets/rice.jpg';
+import sliceAppPlaceholder from '~/assets/rice.jpg';
+import sliceApp from '~/assets/rice.jpg';
+import sliceBackgroundBarLarge from '~/assets/qop.png';
+import sliceBackgroundBarPlaceholder from '~/assets/qop.png';
+import sliceBackgroundBar from '~/assets/qop.png';
+import sliceBackgroundLarge from '~/assets/qop.png';
+import sliceBackgroundPlaceholder from '~/assets/qop.png';
+import sliceBackground from '~/assets/qop.png';
+import sliceIrlPlaceholder from '~/assets/2-2.png';
+import sliceIrl from '~/assets/2-2.png';
+import sliceLast from '~/assets/2-3.png';
 import sliceSidebarAnnotationsLarge from '~/assets/slice-sidebar-annotations-large.png';
 import sliceSidebarAnnotationsPlaceholder from '~/assets/slice-sidebar-annotations-placeholder.png';
 import sliceSidebarAnnotations from '~/assets/slice-sidebar-annotations.png';
-import sliceSidebarLayersLarge from '~/assets/slice-sidebar-layers-large.png';
-import sliceSidebarLayersPlaceholder from '~/assets/slice-sidebar-layers-placeholder.png';
-import sliceSidebarLayers from '~/assets/slice-sidebar-layers.png';
-import sliceSlidesLarge from '~/assets/slice-slides-large.jpg';
-import sliceSlidesPlaceholder from '~/assets/slice-slides-placeholder.jpg';
-import sliceSlides from '~/assets/slice-slides.jpg';
+import sliceSidebarLayersLarge from '~/assets/2-1.png';
+import sliceSidebarLayersPlaceholder from '~/assets/2-1.png';
+import sliceSidebarLayers from '~/assets/2-1.png';
+import sliceSlidesLarge from '~/assets/resnett.png';
+import sliceSlidesPlaceholder from '~/assets/resnett.png';
+import sliceSlides from '~/assets/resnett.png';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
 import {
@@ -39,11 +40,17 @@ import { Fragment } from 'react';
 import { media } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
 import styles from './slice.module.css';
+import ReactCodeMirror from '@uiw/react-codemirror';
 
-const title = 'Biomedical image collaboration';
+const title = 'Rice Leaf Disease Classification';
 const description =
-  'This project involved designing a better way for biomedical educators and learners to annotate digital slides together.';
-const roles = ['User Research', 'UX Design', 'Interface Design'];
+  'The goal of this project is to create a classifier that can accurately identify different diseases affecting rice leaves. The dataset used for training is sourced from Kaggle and contains multiple classes of rice leaf diseases.';
+const roles = [
+  'Preprocessing',
+  'Model Selection',
+  'Training Loop',
+  'Prediction and Visualization',
+];
 
 export const meta = () => {
   return baseMeta({ title, description, prefix: 'Projects' });
@@ -64,7 +71,7 @@ export const Slice = () => {
         <ProjectHeader
           title={title}
           description={description}
-          url="https://www.best.edu.au/s/q2yjjvl7?data=8%404!9%4020303!10%40-15087&version=1"
+          url="https://github.com/Kh1606/Projects/tree/main/RiceLeaf-Image%20Classification"
           roles={roles}
         />
         <ProjectSection padding="top">
@@ -82,34 +89,30 @@ export const Slice = () => {
         <ProjectSection>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
-              <ProjectSectionHeading>Bringing it together</ProjectSectionHeading>
+              <ProjectSectionHeading>Preporcessing</ProjectSectionHeading>
               <ProjectSectionText>
-                Teachers needed a better way to create collaborative group activities by
-                annotating slides on Slice. Before starting this project, a layer could
-                only be annotated by a single user, making it difficult for learners to
-                work together.
+                <li>Import all needable libraries: torch, matplotlib, pandas and etc.</li>
               </ProjectSectionText>
               <ProjectSectionText>
-                Our solution was to allow users to be invited to a layer, where they can
-                see others’ annotations and make their own.
+                <li>
+                  {' '}
+                  The dataset is split into training (80%), validation (10%), and test
+                  sets (10%) using random_split.
+                </li>
+              </ProjectSectionText>{' '}
+              <ProjectSectionText>
+                <li>
+                  Data loaders are then created for each subset, with a batch size of 14
+                  for training and validation, and 1 for testing.
+                </li>
               </ProjectSectionText>
             </div>
-            <div className={styles.sidebarImages}>
+            <div>
               <Image
-                className={styles.sidebarImage}
                 srcSet={`${sliceSidebarLayers} 350w, ${sliceSidebarLayersLarge} 700w`}
                 width={350}
                 height={750}
                 placeholder={sliceSidebarLayersPlaceholder}
-                alt="The layers sidebar design, now with user profiles."
-                sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
-              />
-              <Image
-                className={styles.sidebarImage}
-                srcSet={`${sliceSidebarAnnotations} 350w, ${sliceSidebarAnnotationsLarge} 700w`}
-                width={350}
-                height={750}
-                placeholder={sliceSidebarAnnotationsPlaceholder}
                 alt="Multiple user annotations on a shared layer."
                 sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
               />
@@ -119,14 +122,16 @@ export const Slice = () => {
         <ProjectSection light>
           <ProjectSectionContent>
             <ProjectTextRow>
-              <ProjectSectionHeading>Improving the experience</ProjectSectionHeading>
+              <ProjectSectionHeading>Model Selection</ProjectSectionHeading>
               <ProjectSectionText>
-                A problem we heard about often form users was that it was difficult to
-                find images they had previously seen or worked on. To solve this we added
-                a new tab that lists all previously annotated slides. In addition, we
-                added the ability to favorite slides, so if users find an interesting
-                slide they want to annotate later, they can easily save it to their
-                account.
+                <li>
+                  The ResNet18 model is loaded using timm, with timm.create_model().
+                </li>
+                <li>
+                  The model is initialized with pretrained weights, and the number of
+                  output classes is set to 8 (indicating there are 8 types of leaf
+                  conditions).
+                </li>
               </ProjectSectionText>
             </ProjectTextRow>
             <Image
@@ -136,10 +141,20 @@ export const Slice = () => {
               placeholder={sliceSlidesPlaceholder}
               alt="The new My Slides tab in slice, showing annotated and favorited slides."
               sizes={`(max-width: ${media.mobile}px) 500px, (max-width: ${media.tablet}px) 800px, 1000px`}
-            />
+            />{' '}
+            <ProjectTextRow>
+              <ProjectSectionHeading>Loss Function and Optimizer</ProjectSectionHeading>
+              <ProjectSectionText>
+                <li>
+                  The loss function used is CrossEntropyLoss, appropriate for multi-class
+                  classification.
+                </li>
+                <li>The optimizer is Adam, with a learning rate of 3e-4.</li>
+              </ProjectSectionText>
+            </ProjectTextRow>
           </ProjectSectionContent>
         </ProjectSection>
-        <ProjectSection padding="top">
+        {/* <ProjectSection padding="top">
           <ProjectSectionContent className={styles.grid}>
             <div className={styles.gridImage}>
               <div className={styles.gridBackground}>
@@ -175,17 +190,21 @@ export const Slice = () => {
               </ProjectSectionText>
             </div>
           </ProjectSectionContent>
-        </ProjectSection>
+        </ProjectSection> */}
         <ProjectSection>
           <ProjectSectionContent>
             <ProjectTextRow>
-              <ProjectSectionHeading>Project outcomes</ProjectSectionHeading>
+              <ProjectSectionHeading>Training Loop </ProjectSectionHeading>
               <ProjectSectionText>
-                Real-time collaborative annotation facilitated better collaboration
-                between learners, and was much easier to run group exercises with the new
-                shared layers feature. Learners gave feedback that is was enjoyable to
-                work together and see what others were doing, and liked how interactive
-                and easy to use the application was.
+                <li>The training loop runs for 10 epochs.</li>
+                <li>Each epoch involves both training and validation phases.</li>
+                <li>
+                  The model parameters are updated using backpropagation during training.
+                </li>
+                <li>
+                  Validation is performed without gradient tracking, and the validation
+                  loss and accuracy are recorded.
+                </li>
               </ProjectSectionText>
             </ProjectTextRow>
             <Image
@@ -193,6 +212,31 @@ export const Slice = () => {
               width={940}
               height={500}
               placeholder={sliceIrlPlaceholder}
+              alt="Students at the University of New South Wales using the new collaborative annotation features"
+            />
+          </ProjectSectionContent>
+        </ProjectSection>
+        <ProjectSection light>
+          <ProjectSectionContent>
+            <ProjectTextRow>
+              <ProjectSectionHeading>Prediction and Visualization</ProjectSectionHeading>
+              <ProjectSectionText>
+                <li>
+                  The code iterates through a batch of images and predicts their classes.
+                </li>
+                <li>Predictions are compared to actual labels.</li>
+                <li>
+                  The result and prediction for random samples are visualized using
+                  matplotlib.
+                </li>
+                <li>Training and validation accuracy scores are plotted.</li>
+              </ProjectSectionText>
+            </ProjectTextRow>
+            <Image
+              src={sliceLast}
+              width={940}
+              height={500}
+              placeholder={sliceLast}
               alt="Students at the University of New South Wales using the new collaborative annotation features"
             />
           </ProjectSectionContent>

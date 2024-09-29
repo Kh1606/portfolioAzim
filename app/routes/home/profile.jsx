@@ -1,6 +1,6 @@
-import profileImgLarge from '~/assets/profile-large.jpg';
-import profileImgPlaceholder from '~/assets/profile-placeholder.jpg';
-import profileImg from '~/assets/profile.jpg';
+import profileImgLarge from '~/assets/profile_.jpg';
+import profileImgPlaceholder from '~/assets/profile_.jpg';
+import profileImg from '~/assets/profile_.jpg';
 import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
 import { Divider } from '~/components/divider';
@@ -14,23 +14,26 @@ import { Fragment, useState } from 'react';
 import { media } from '~/utils/style';
 import katakana from './katakana.svg';
 import styles from './profile.module.css';
-
 const ProfileText = ({ visible, titleId }) => (
   <Fragment>
     <Heading className={styles.title} data-visible={visible} level={3} id={titleId}>
-      <DecoderText text="Hi there" start={visible} delay={500} />
+      <DecoderText text={'안녕하세요!'} start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I’m Hamish, currently I live in Sydney working as a senior product designer at{' '}
-      <Link href="https://www.qwilr.com">Qwilr</Link>. My projects include UX design, UI
-      animations, and icon illustration. Being comfortable with code allows me to rapidly
-      prototype and validate experiences. If you’re interested in the tools and software I
-      use check out my <Link href="/uses">uses page</Link>.
+      I'm <Link href={'https://www.instagram.com/khusanboev06/'}>Alex</Link>, I currently
+      live in Seoul, South Korea, where I work as an AI developer specializing in data
+      automation, image processing, and machine learning. With a background in computer
+      engineering, I am passionate about tackling complex data challenges, building
+      end-to-end AI solutions, and creating efficient, automated workflows.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      In my spare time I like to practice Brazilian Jiu Jitsu, play video games, and{' '}
-      <Link href="/projects/volkihar-knight">make mods</Link>. I’m always down for hearing
-      about new projects, so feel free to drop me a line.
+      I love working with Python and am well-versed in tools like TensorFlow, PyTorch,
+      Tesseract, and pandas. I’ve been living in Korea for about six years, during which I
+      also completed my university studies.
+    </Text>{' '}
+    <Text className={styles.description} data-visible={visible} size="l" as="p">
+      I’m actively looking to expand my career in AI development and data science, and I’m
+      excited to solve real-world problems through technology.
     </Text>
   </Fragment>
 );
