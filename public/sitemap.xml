@@ -23,4 +23,12 @@
     <loc>https://aaa-5uh.pages.dev/projects/insomnia/</loc>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://aaa-5uh.pages.dev/projects/aiforus-pipeline/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aaa-5uh.pages.dev/projects/aiforus-dashboard/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
