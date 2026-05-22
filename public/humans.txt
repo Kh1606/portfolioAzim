@@ -8,22 +8,18 @@ and graphic assets behind this site humanstxt.org.
 
 _______________________________________________________________________________
 
-DESIGNER | デザイナー
+DEVELOPER
 
-Hamish Williams
-Hand crafted design & web development
+Azimjon Khusanboev
+AI Researcher & Developer
+Seoul, South Korea
 
-Design tools:
-Figma
-Photoshop
-Blender
-
-twitter.com/hamishmw
-github.com/hamishmw
+github.com/Kh1606
+linkedin.com/in/azem-khusanboev-5a77722b9
 
 _______________________________________________________________________________
 
-TECHNOLOGY | テクノロジー
+TECHNOLOGY
 
 React
 Remix
@@ -32,7 +28,7 @@ Framer Motion
 
 _______________________________________________________________________________
 
-FONTS | フォント
+FONTS
 
 Gotham
 IPA Gothic Regular

@@ -41,7 +41,6 @@ import { Fragment } from 'react';
 import { media } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
 import styles from './insomnia.module.css';
-import ReactCodeMirror from '@uiw/react-codemirror';
 
 const title = 'Insomnia Data Analysis and Automation Project';
 const description =
@@ -83,7 +82,7 @@ export const Insomnia = () => {
               width={800}
               height={500}
               placeholder={sliceAppPlaceholder}
-              alt="The Slice web application showing a selected user annotation."
+              alt="Source sleep data image from Samsung Health used as input"
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
             />
           </ProjectSectionContent>
@@ -105,7 +104,7 @@ export const Insomnia = () => {
                 width={350}
                 height={750}
                 placeholder={sliceSidebarLayersPlaceholder}
-                alt="Multiple user annotations on a shared layer."
+                alt="Sleep data showing periods, stages, and the sleep graph"
                 sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
               />
             </div>
@@ -125,7 +124,7 @@ export const Insomnia = () => {
               width={800}
               height={500}
               placeholder={sliceSlidesPlaceholder}
-              alt="The new My Slides tab in slice, showing annotated and favorited slides."
+              alt="Sleep graph cropped from the original image"
               sizes={`(max-width: ${media.mobile}px) 500px, (max-width: ${media.tablet}px) 800px, 1000px`}
             />{' '}
           </ProjectSectionContent>
@@ -181,7 +180,7 @@ export const Insomnia = () => {
               width={940}
               height={500}
               placeholder={sliceIrlPlaceholder}
-              alt="Students at the University of New South Wales using the new collaborative annotation features"
+              alt="Grayscaled sleep graph scaled to the sleep duration in minutes"
             />
           </ProjectSectionContent>
         </ProjectSection>
@@ -200,7 +199,7 @@ export const Insomnia = () => {
               width={940}
               height={500}
               placeholder={sliceLast}
-              alt="Students at the University of New South Wales using the new collaborative annotation features"
+              alt="Final CSV output with three columns of sleep data per minute"
             />
           </ProjectSectionContent>
         </ProjectSection>{' '}
@@ -219,7 +218,7 @@ export const Insomnia = () => {
               width={940}
               height={500}
               placeholder={sliceLast2}
-              alt="Students at the University of New South Wales using the new collaborative annotation features"
+              alt="Accuracy comparison plot between the source image and CSV-derived sleep data"
             />
           </ProjectSectionContent>
         </ProjectSection>

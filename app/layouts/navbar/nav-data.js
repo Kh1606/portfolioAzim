@@ -25,4 +25,14 @@ export const socialLinks = [
     url: `https://github.com/${config.github}`,
     icon: 'github',
   },
+  {
+    label: 'LinkedIn',
+    url: config.linkedin,
+    icon: 'linkedin',
+  },
+  {
+    label: 'Instagram',
+    url: config.instagram,
+    icon: 'instagram',
+  },
 ];

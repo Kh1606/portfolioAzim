@@ -39,8 +39,7 @@ import {
 import { Fragment } from 'react';
 import { media } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
-import styles from './slice.module.css';
-import ReactCodeMirror from '@uiw/react-codemirror';
+import styles from './rice-leaf.module.css';
 
 const title = 'Rice Leaf Disease Classification';
 const description =
@@ -81,7 +80,7 @@ export const Slice = () => {
               width={800}
               height={500}
               placeholder={sliceAppPlaceholder}
-              alt="The Slice web application showing a selected user annotation."
+              alt="Sample rice leaf image showing visible disease symptoms"
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
             />
           </ProjectSectionContent>
@@ -89,7 +88,7 @@ export const Slice = () => {
         <ProjectSection>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
-              <ProjectSectionHeading>Preporcessing</ProjectSectionHeading>
+              <ProjectSectionHeading>Preprocessing</ProjectSectionHeading>
               <ProjectSectionText>
                 <li>Import all needable libraries: torch, matplotlib, pandas and etc.</li>
               </ProjectSectionText>
@@ -113,7 +112,7 @@ export const Slice = () => {
                 width={350}
                 height={750}
                 placeholder={sliceSidebarLayersPlaceholder}
-                alt="Multiple user annotations on a shared layer."
+                alt="Rice leaf dataset preview from the training set"
                 sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
               />
             </div>
@@ -139,7 +138,7 @@ export const Slice = () => {
               width={800}
               height={500}
               placeholder={sliceSlidesPlaceholder}
-              alt="The new My Slides tab in slice, showing annotated and favorited slides."
+              alt="ResNet18 model architecture used for classification"
               sizes={`(max-width: ${media.mobile}px) 500px, (max-width: ${media.tablet}px) 800px, 1000px`}
             />{' '}
             <ProjectTextRow>
@@ -212,7 +211,7 @@ export const Slice = () => {
               width={940}
               height={500}
               placeholder={sliceIrlPlaceholder}
-              alt="Students at the University of New South Wales using the new collaborative annotation features"
+              alt="Training and validation loss curves over 10 epochs"
             />
           </ProjectSectionContent>
         </ProjectSection>
@@ -237,7 +236,7 @@ export const Slice = () => {
               width={940}
               height={500}
               placeholder={sliceLast}
-              alt="Students at the University of New South Wales using the new collaborative annotation features"
+              alt="Predicted vs actual labels visualized for sample test images"
             />
           </ProjectSectionContent>
         </ProjectSection>
