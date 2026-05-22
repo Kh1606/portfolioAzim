@@ -24,11 +24,7 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://aaa-5uh.pages.dev/projects/aiforus-pipeline/</loc>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://aaa-5uh.pages.dev/projects/aiforus-dashboard/</loc>
+    <loc>https://aaa-5uh.pages.dev/projects/aiforus/</loc>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>

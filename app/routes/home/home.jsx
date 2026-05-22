@@ -3,8 +3,7 @@ import insomniaTexturePlaceholder from '~/assets/insomnia-home.avif';
 import insomniaTexture from '~/assets/insomnia-home.avif';
 import riceLeafTexture from '~/assets/rice-leaf-home.jpg';
 import seaweedTexture from '~/assets/seaweed-gan-home.png';
-import pipelineTexture from '~/assets/spr-background.jpg';
-import dashboardTexture from '~/assets/loki.jpg';
+import aiforusTexture from '~/assets/loki.jpg'; // [H] home-tile placeholder — see aiforus.jsx PLACEHOLDER_MAP
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -49,11 +48,10 @@ export const Home = () => {
   const projectTwo = useRef();
   const projectThree = useRef();
   const projectFour = useRef();
-  const projectFive = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, projectFive, details];
+    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -163,37 +161,17 @@ export const Home = () => {
         sectionRef={projectFour}
         visible={visibleSections.includes(projectFour.current)}
         index={4}
-        title="AIFORUS News Pipeline"
-        description="Production AI news collection and tagging pipeline at Aiforus"
+        title="AIFORUS"
+        description="Full-stack AI news intelligence platform at Aiforus — Python pipeline + React dashboard"
         buttonText="View project"
-        buttonLink="/projects/aiforus-pipeline"
+        buttonLink="/projects/aiforus"
         model={{
           type: 'laptop',
-          alt: 'AIFORUS news pipeline architecture',
+          alt: 'AIFORUS dashboard showing map and AI news trends',
           textures: [
             {
-              srcSet: `${pipelineTexture} 1280w, ${pipelineTexture} 2560w`,
-              placeholder: pipelineTexture,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-5"
-        sectionRef={projectFive}
-        visible={visibleSections.includes(projectFive.current)}
-        index={5}
-        title="AIFORUS Dashboard"
-        description="React + Leaflet + Recharts dashboard for the AIFORUS pipeline"
-        buttonText="View project"
-        buttonLink="/projects/aiforus-dashboard"
-        model={{
-          type: 'laptop',
-          alt: 'AIFORUS dashboard with map and trend charts',
-          textures: [
-            {
-              srcSet: `${dashboardTexture} 1280w, ${dashboardTexture} 2560w`,
-              placeholder: dashboardTexture,
+              srcSet: `${aiforusTexture} 1280w, ${aiforusTexture} 2560w`,
+              placeholder: aiforusTexture,
             },
           ],
         }}
