@@ -13,6 +13,10 @@ import { useEffect, useRef, useState } from 'react';
 import config from '~/config.json';
 import styles from './home.module.css';
 
+// The 3D laptop project summaries are kept but disabled — projects now live on the
+// dedicated /projects card grid. Flip this to `true` to show them on the home page again.
+const SHOW_3D_SUMMARIES = false;
+
 // Prefetch draco decoader wasm
 export const links = () => {
   return [
@@ -51,7 +55,9 @@ export const Home = () => {
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, details];
+    const sections = SHOW_3D_SUMMARIES
+      ? [intro, projectOne, projectTwo, projectThree, projectFour, details]
+      : [intro, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -93,6 +99,8 @@ export const Home = () => {
         sectionRef={intro}
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
+      {SHOW_3D_SUMMARIES && (
+        <>
       <ProjectSummary
         id="project-1"
         sectionRef={projectOne}
@@ -176,6 +184,8 @@ export const Home = () => {
           ],
         }}
       />
+        </>
+      )}
       <Profile
         sectionRef={details}
         visible={visibleSections.includes(details.current)}

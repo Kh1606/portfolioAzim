@@ -1,0 +1,210 @@
+.card {
+  --cardAccent: var(--accent);
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 264px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in lab, var(--text) 12%, transparent);
+  background: color-mix(in lab, var(--backgroundLight) 70%, transparent);
+  overflow: hidden;
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  animation: cardReveal 0.7s var(--delay, 0ms) cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transition:
+    transform var(--durationM) var(--bezierFastoutSlowin),
+    border-color var(--durationM) ease,
+    box-shadow var(--durationM) ease;
+}
+
+.pixels {
+  z-index: -1;
+}
+
+/* Accent wash that strengthens on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    120% 100% at 0% 100%,
+    color-mix(in lab, var(--cardAccent) 14%, transparent),
+    transparent 60%
+  );
+  opacity: 0.5;
+  transition: opacity var(--durationM) ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translate3d(0, -4px, 0);
+  border-color: color-mix(in lab, var(--cardAccent) 70%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in lab, var(--cardAccent) 55%, transparent),
+    0 22px 48px -24px color-mix(in lab, var(--cardAccent) 65%, transparent);
+}
+
+.card:hover::before,
+.card:focus-within::before {
+  opacity: 1;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  padding: 26px 26px 22px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.index {
+  font-family: var(--monoFontStack);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--cardAccent);
+  opacity: 0.85;
+}
+
+.year {
+  font-size: 13px;
+  color: var(--textLight);
+  font-variant-numeric: tabular-nums;
+}
+
+.title {
+  margin: 2px 0 0;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: var(--fontWeightMedium);
+  letter-spacing: -0.01em;
+}
+
+.titleLink {
+  color: var(--textTitle);
+  text-decoration: none;
+  transition: color var(--durationM) ease;
+}
+
+/* Stretched link: covers the whole card so any click opens the destination */
+.titleLink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.card:hover .titleLink,
+.card:focus-within .titleLink {
+  color: var(--cardAccent);
+}
+
+.titleLink:focus-visible::after {
+  outline: 2px solid var(--cardAccent);
+  outline-offset: 2px;
+}
+
+.blurb {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--textBody);
+}
+
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  font-family: var(--monoFontStack);
+  font-size: 11.5px;
+  line-height: 1;
+  padding: 5px 8px;
+  border-radius: 6px;
+  color: var(--textLight);
+  border: 1px solid color-mix(in lab, var(--text) 14%, transparent);
+  background: color-mix(in lab, var(--text) 4%, transparent);
+  white-space: nowrap;
+}
+
+.tagMore {
+  color: var(--cardAccent);
+  border-color: color-mix(in lab, var(--cardAccent) 40%, transparent);
+}
+
+/* GitHub button — sits above the stretched link so its own click wins */
+.codeButton {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: var(--fontWeightMedium);
+  color: var(--textBody);
+  text-decoration: none;
+  border: 1px solid color-mix(in lab, var(--text) 16%, transparent);
+  background: color-mix(in lab, var(--background) 60%, transparent);
+  transition:
+    color var(--durationXS) ease,
+    border-color var(--durationXS) ease,
+    background var(--durationXS) ease;
+}
+
+.codeButton:hover {
+  color: var(--cardAccent);
+  border-color: color-mix(in lab, var(--cardAccent) 60%, transparent);
+  background: color-mix(in lab, var(--cardAccent) 10%, transparent);
+}
+
+.codeIcon {
+  width: 18px;
+  height: 18px;
+}
+
+@keyframes cardReveal {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: border-color var(--durationM) ease, box-shadow var(--durationM) ease;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: none;
+  }
+}

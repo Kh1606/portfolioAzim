@@ -1,0 +1,31 @@
+.projects {
+  /* container styling handled by ProjectContainer */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spaceL);
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 0 var(--space3XL);
+  padding: 0;
+  list-style: none;
+
+  @media (--mediaLaptop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (--mediaMobile) {
+    grid-template-columns: 1fr;
+    gap: var(--spaceM);
+  }
+}
+
+.gridItem {
+  display: flex;
+}
+
+.gridItem > * {
+  flex: 1;
+}
