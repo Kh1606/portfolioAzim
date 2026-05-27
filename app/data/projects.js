@@ -73,41 +73,48 @@ export const projects = [
     slug: 'aiforus',
     title: 'AIFORUS',
     blurb:
-      'A production full-stack AI-news intelligence platform I built solo at Aiforus. A Python pipeline discovers and classifies global AI news; a React dashboard visualizes it on maps and charts.',
-    tags: ['FastAPI', 'PostgreSQL', 'React', 'ML', 'Docker'],
+      'A production AI-news intelligence platform I built solo at Aiforus (live at aicerti.co.kr). A Python pipeline continuously discovers, fetches and normalizes global AI-related news; a React dashboard maps and charts it. A public demo + its source are open.',
+    tags: ['FastAPI', 'React', 'ML', 'Docker', 'Leaflet'],
+    github: 'https://github.com/Kh1606/ai-news-pipeline-demo',
+    url: 'https://ai-news-pipeline-demo.azimjon1606.workers.dev',
+    production: 'https://aicerti.co.kr',
     detail: '/projects/aiforus',
     year: 2024,
-    status: 'Production · company project',
+    status: 'In production · aicerti.co.kr',
     accent: '#38bdf8',
     pixelColors: ['#0ea5e9', '#38bdf8', '#7dd3fc'],
     caseStudy: {
-      tagline: 'AI-news intelligence platform, built solo in production.',
+      tagline: 'AI-news intelligence — built solo, shipped to production.',
       problem:
         'Non-technical teams needed to track global AI developments without reading hundreds of sources every day.',
       whatItDoes:
-        'A Python pipeline (FastAPI + PostgreSQL + ML tagging) continuously discovers AI-related news from global media, scrapes and normalizes it, and applies zero-shot classification. A React + Vite dashboard with Leaflet maps and Recharts visualizes the output for non-technical users.',
-      stack: ['FastAPI', 'PostgreSQL', 'React', 'Vite', 'Docker', 'nginx'],
+        'A backend continuously discovers AI-related news URLs from global media (the "clt" service), then fetches and normalizes the content ("scr" service) on a scheduler; an ML layer scores articles for AI-relevance. A React + Vite dashboard with Leaflet maps and Recharts turns the feed into something a non-technical user can scan. Live in production at aicerti.co.kr, with a stripped-down public demo (FastAPI + React, sample data) open-sourced.',
+      stack: ['Python', 'FastAPI', 'React', 'Vite', 'Leaflet', 'Recharts', 'Docker', 'nginx'],
       role: [
         'Solo engineer (backend + frontend)',
-        'Pipeline architecture',
+        'Pipeline & scheduler architecture',
         'ML integration',
         'Docker / nginx deploy',
       ],
       highlights: [
         {
-          title: 'End-to-end ownership',
-          text: 'Designed and shipped the whole system alone — ingestion, ML tagging, API, dashboard and deployment.',
+          title: 'Shipped to production',
+          text: 'Designed and built the whole system solo — collection, normalization, ML scoring, API, dashboard and deploy — running in production at aicerti.co.kr.',
         },
         {
-          title: 'Zero-shot tagging',
-          text: 'Classifies incoming articles with no per-label training data, so new topics need no retraining.',
+          title: 'Two-service pipeline',
+          text: 'Decoupled URL discovery (clt) from content fetch + normalization (scr); each runs alone or together via an operator layer + scheduler, for stable long-term collection.',
+        },
+        {
+          title: 'Zero-shot relevance',
+          text: 'Scores incoming articles for AI-relevance with no per-label training data, so new topics need no retraining.',
         },
         {
           title: 'Built for non-experts',
-          text: 'Map and trend views turn a noisy global feed into something a non-technical user can scan in seconds.',
+          text: 'Map and trend views turn a noisy global feed into something readable at a glance.',
         },
       ],
-      note: 'Company project — source code is not public.',
+      note: 'The production system is company IP. The linked repo + live demo are a public, stripped-down version (sample data) of the same architecture.',
     },
   },
   {
@@ -150,18 +157,6 @@ export const projects = [
         },
       ],
     },
-  },
-  {
-    slug: 'ai-news-pipeline-demo',
-    title: 'AI News Pipeline',
-    blurb:
-      'A runnable, stripped-down demo of a production AI-news pipeline — collects, tags and visualizes global AI news in a full-stack app deployed to Cloudflare Workers.',
-    tags: ['React', 'Cloudflare Workers', 'ML', 'Full-stack'],
-    url: 'https://ai-news-pipeline-demo.azimjon1606.workers.dev',
-    year: 2025,
-    status: 'Live demo',
-    accent: '#a78bfa',
-    pixelColors: ['#8b5cf6', '#a78bfa', '#c4b5fd'],
   },
   {
     slug: 'ai-eval',

@@ -18,7 +18,8 @@ import styles from './project-detail.module.css';
  * empty placeholder dumps.
  */
 export function ProjectDetail({ project }) {
-  const { title, blurb, github, url, accent, year, status, media, caseStudy = {} } = project;
+  const { title, blurb, github, url, production, accent, year, status, media, caseStudy = {} } =
+    project;
   const { tagline, problem, whatItDoes, stack, role, highlights, note } = caseStudy;
 
   const metaItems = [role?.length && role[0], status, year].filter(Boolean);
@@ -48,8 +49,13 @@ export function ProjectDetail({ project }) {
         )}
 
         <div className={styles.actions}>
+          {production && (
+            <Button iconEnd="chevron-right" iconHoverShift href={production}>
+              Visit production
+            </Button>
+          )}
           {github && (
-            <Button icon="github" href={github}>
+            <Button secondary={Boolean(production)} icon="github" href={github}>
               View code
             </Button>
           )}
@@ -155,8 +161,13 @@ export function ProjectDetail({ project }) {
         {note && <p className={styles.note}>{note}</p>}
 
         <div className={styles.cta}>
+          {production && (
+            <Button iconEnd="chevron-right" iconHoverShift href={production}>
+              Visit production
+            </Button>
+          )}
           {github && (
-            <Button icon="github" href={github}>
+            <Button secondary={Boolean(production)} icon="github" href={github}>
               View on GitHub
             </Button>
           )}
