@@ -32,6 +32,9 @@ import riceClasses from '~/assets/projects/rice-leaf/classes.png';
 import riceLoss from '~/assets/projects/rice-leaf/loss-curve.png';
 import ricePredictions from '~/assets/projects/rice-leaf/predictions.png';
 import ricePredictionExample from '~/assets/projects/rice-leaf/prediction-example.png';
+import seoulairCorr from '~/assets/projects/seoulair/correlation.png';
+import seoulairTs from '~/assets/projects/seoulair/pm25-timeseries.png';
+import seoulairMonthly from '~/assets/projects/seoulair/monthly-pm.png';
 
 export const projects = [
   {
@@ -509,6 +512,65 @@ export const projects = [
         {
           title: 'Serverless & free',
           text: 'A React/Vite front-end on GitHub Pages reads Supabase directly — fully serverless and free to host.',
+        },
+      ],
+    },
+  },
+  {
+    slug: 'seoulair',
+    title: 'SeoulAir',
+    blurb:
+      'Cleans, fills and merges scattered Seoul air-quality + weather exports (2022–2023) into analysis-ready datasets, then analyzes how the pollutants (PM2.5/PM10/O3/NO2/CO/SO2) relate to each other and the weather.',
+    tags: ['Python', 'Pandas', 'Matplotlib', 'Data Engineering'],
+    github: 'https://github.com/Kh1606/seoulair',
+    detail: '/projects/seoulair',
+    year: 2024,
+    status: 'Data analysis',
+    accent: '#22d3ee',
+    pixelColors: ['#06b6d4', '#22d3ee', '#67e8f9'],
+    media: [
+      {
+        src: seoulairCorr,
+        width: 780,
+        height: 650,
+        alt: 'Correlation heatmap of Seoul air pollutants',
+        caption: 'Pollutant correlations',
+      },
+      {
+        src: seoulairTs,
+        width: 1170,
+        height: 455,
+        alt: 'Daily mean PM2.5 across Seoul over a year',
+        caption: 'Daily PM2.5 across Seoul',
+      },
+      {
+        src: seoulairMonthly,
+        width: 1040,
+        height: 520,
+        alt: 'Monthly average PM2.5 vs PM10',
+        caption: 'Monthly PM2.5 vs PM10',
+      },
+    ],
+    caseStudy: {
+      tagline: 'Making messy Seoul air-quality data analysis-ready.',
+      problem:
+        'Seoul air-quality and weather come as scattered monthly exports with gaps and inconsistent timestamps — not something you can analyze directly.',
+      whatItDoes:
+        'Ingests monthly Seoul air-quality exports (PM10, PM2.5, O3, NO2, CO, SO2 by district) plus weather data, normalizes timestamps, fills gaps and merges everything into clean unified tables — then runs correlation analysis across pollutants and weather.',
+      stack: ['Python', 'pandas', 'NumPy', 'Matplotlib', 'Jupyter'],
+      role: ['Data collection', 'Cleaning & gap-filling', 'Merging', 'Correlation analysis'],
+      highlights: [
+        {
+          title: 'Scattered → unified',
+          text: 'Monthly per-district exports across two years, normalized and joined into one analysis-ready dataset.',
+        },
+        {
+          title: 'Sensible signals',
+          text: 'PM2.5 tracks CO and NO2 (combustion / traffic) and peaks in winter; ozone is anti-correlated with NO2 — the expected photochemistry.',
+        },
+        {
+          title: 'Reproducible figures',
+          text: 'A small script regenerates the charts from the cleaned sample CSV.',
         },
       ],
     },
