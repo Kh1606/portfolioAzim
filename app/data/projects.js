@@ -111,13 +111,14 @@ export const projects = [
     },
   },
   {
-    slug: 'masil',
-    title: 'masil',
+    slug: 'safestep',
+    title: 'SafeStep',
     blurb:
       'Seoul pedestrian-hazard mapping. Extracts walkability features from OpenStreetMap and combines a YOLOv11 hazard detector with monocular depth estimation on stairs.',
     tags: ['Python', 'YOLOv11', 'PyTorch', 'OpenStreetMap', 'Folium'],
-    github: 'https://github.com/Kh1606/masil',
-    detail: '/projects/masil',
+    github: 'https://github.com/Kh1606/safestep',
+    url: 'https://kh1606.github.io/safestep/',
+    detail: '/projects/safestep',
     year: 2025,
     status: 'Prototype',
     accent: '#fbbf24',
