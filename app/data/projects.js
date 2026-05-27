@@ -15,6 +15,11 @@
 
 import pitchmathMatchStats from '~/assets/projects/pitchmath/match-stats.png';
 import pitchmathTeamDna from '~/assets/projects/pitchmath/team-dna.png';
+import evalkitConfusion from '~/assets/projects/evalkit/cls-confusion-matrix.png';
+import evalkitRoc from '~/assets/projects/evalkit/cls-roc.png';
+import evalkitSegPr from '~/assets/projects/evalkit/seg-pr-curve.png';
+import evalkitDetIou from '~/assets/projects/evalkit/det-iou-histogram.png';
+import evalkitAsrWer from '~/assets/projects/evalkit/asr-wer-histogram.png';
 
 export const projects = [
   {
@@ -159,16 +164,81 @@ export const projects = [
     },
   },
   {
-    slug: 'ai-eval',
-    title: 'ai-eval',
+    slug: 'evalkit',
+    title: 'EvalKit',
     blurb:
-      'A unified evaluation toolkit that benchmarks five AI model types — classification, detection, segmentation, speech and text — reporting both accuracy and stability across data slices.',
-    tags: ['Python', 'PyTorch', 'Ultralytics', 'CLI'],
-    github: 'https://github.com/Kh1606/ai-eval',
+      'A unified CLI that benchmarks five AI model types — image classification, object detection, segmentation, speech and text — reporting not just accuracy but stability (metric variance across repeated data slices).',
+    tags: ['Python', 'PyTorch', 'Ultralytics', 'Transformers', 'CLI'],
+    github: 'https://github.com/Kh1606/evalkit',
+    detail: '/projects/evalkit',
     year: 2025,
     status: 'Tool',
     accent: '#60a5fa',
     pixelColors: ['#3b82f6', '#60a5fa', '#93c5fd'],
+    media: [
+      {
+        src: evalkitConfusion,
+        width: 800,
+        height: 600,
+        alt: 'EvalKit classification confusion matrix report',
+        caption: 'Classification — confusion matrix',
+      },
+      {
+        src: evalkitRoc,
+        width: 640,
+        height: 480,
+        alt: 'EvalKit per-class ROC curves',
+        caption: 'Classification — ROC curves',
+      },
+      {
+        src: evalkitSegPr,
+        width: 640,
+        height: 480,
+        alt: 'EvalKit segmentation precision-recall curve',
+        caption: 'Segmentation — precision / recall',
+      },
+      {
+        src: evalkitDetIou,
+        width: 640,
+        height: 480,
+        alt: 'EvalKit detection IoU histogram',
+        caption: 'Detection — IoU histogram',
+      },
+      {
+        src: evalkitAsrWer,
+        width: 640,
+        height: 480,
+        alt: 'EvalKit speech-recognition WER histogram',
+        caption: 'Speech — WER histogram',
+      },
+    ],
+    caseStudy: {
+      tagline: 'One CLI to benchmark any model — for accuracy and stability.',
+      problem:
+        'Model evaluation is usually ad-hoc and single-number: you get one accuracy figure and no sense of how much it wobbles from run to run.',
+      whatItDoes:
+        'EvalKit is an interactive CLI that evaluates five model families — image classification, object detection, semantic segmentation, speech recognition and text — under repeated random subsampling. For each checkpoint it reports classic metrics (accuracy, mAP, mean IoU, WER) and their stability (variance across 50% data slices), and writes rich reports: confusion matrices, ROC / PR curves, IoU / WER histograms, calibration and t-SNE plots, plus CSV summaries.',
+      stack: ['Python', 'PyTorch', 'Ultralytics', 'Transformers', 'scikit-learn', 'Matplotlib', 'Rich'],
+      role: ['Solo developer', 'Evaluator architecture', 'Metrics & plotting', 'Packaging (pip)'],
+      highlights: [
+        {
+          title: 'Five tasks, one tool',
+          text: 'classify / detect / seg / speech / text — a shared base class with one evaluator per task, behind a single guided CLI.',
+        },
+        {
+          title: 'Stability, not just accuracy',
+          text: 'Repeated random-subsampling reports the variance of each metric, so you see how reliable a score actually is.',
+        },
+        {
+          title: 'Rich auto-reports',
+          text: 'Every run drops confusion matrices, PR/ROC curves, histograms, calibration & t-SNE plots and a CSV summary.',
+        },
+        {
+          title: 'Device-aware & pip-installable',
+          text: 'Automatic GPU/CPU fallback; install with pip and run `evalkit`.',
+        },
+      ],
+    },
   },
   {
     slug: 'seaweed-gan',
