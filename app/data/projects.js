@@ -9,7 +9,12 @@
  *
  * `caseStudy` powers the concise detail template (see components/project-detail).
  * Text here is meant to be tweaked freely — it's all in one place.
+ *
+ * Screenshots: import the asset and reference it in the project's `media` array.
  */
+
+import pitchmathMatchStats from '~/assets/projects/pitchmath/match-stats.png';
+import pitchmathTeamDna from '~/assets/projects/pitchmath/team-dna.png';
 
 export const projects = [
   {
@@ -24,6 +29,22 @@ export const projects = [
     status: 'Active',
     accent: '#34d399',
     pixelColors: ['#10b981', '#34d399', '#6ee7b7'],
+    media: [
+      {
+        src: pitchmathMatchStats,
+        width: 855,
+        height: 861,
+        alt: 'PitchMath match stats — Liverpool vs Brentford xG, shots and possession comparison',
+        caption: 'Match stats — full head-to-head comparison',
+      },
+      {
+        src: pitchmathTeamDna,
+        width: 1564,
+        height: 891,
+        alt: 'PitchMath Team Analyzer showing the Team DNA radar for Arsenal',
+        caption: 'Team Analyzer — Team DNA radar',
+      },
+    ],
     caseStudy: {
       tagline: 'A football analytics platform, end to end.',
       problem:
