@@ -28,6 +28,10 @@ import seaweedSample4 from '~/assets/projects/seaweed-gan/sample4.jpg';
 import insomniaCrop from '~/assets/projects/insomnia/cropped-graph.png';
 import insomniaGray from '~/assets/projects/insomnia/grayscale.png';
 import insomniaCsv from '~/assets/projects/insomnia/csv-output.png';
+import riceClasses from '~/assets/projects/rice-leaf/classes.png';
+import riceLoss from '~/assets/projects/rice-leaf/loss-curve.png';
+import ricePredictions from '~/assets/projects/rice-leaf/predictions.png';
+import ricePredictionExample from '~/assets/projects/rice-leaf/prediction-example.png';
 
 export const projects = [
   {
@@ -323,11 +327,42 @@ export const projects = [
     blurb:
       'A CNN image classifier (ResNet18) that identifies rice-leaf diseases across multiple classes from a Kaggle dataset.',
     tags: ['Python', 'PyTorch', 'ResNet18', 'CNN'],
+    github: 'https://github.com/Kh1606/rice-leaf',
     detail: '/projects/rice-leaf',
     year: 2024,
     status: 'Research',
     accent: '#a3e635',
     pixelColors: ['#84cc16', '#a3e635', '#bef264'],
+    media: [
+      {
+        src: riceClasses,
+        width: 740,
+        height: 990,
+        alt: 'Sample rice-leaf images across the disease classes',
+        caption: 'The disease classes',
+      },
+      {
+        src: riceLoss,
+        width: 826,
+        height: 451,
+        alt: 'Train and validation loss curves',
+        caption: 'Train / validation loss',
+      },
+      {
+        src: ricePredictions,
+        width: 1553,
+        height: 812,
+        alt: 'Grid of predictions vs ground truth on test leaves',
+        caption: 'Predictions vs. ground truth',
+      },
+      {
+        src: ricePredictionExample,
+        width: 513,
+        height: 411,
+        alt: 'Single prediction on a rice-leaf image',
+        caption: 'A single prediction',
+      },
+    ],
     caseStudy: {
       tagline: 'Classifying rice-leaf disease with a CNN.',
       problem:
