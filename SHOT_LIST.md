@@ -28,8 +28,16 @@ Best single asset: a **15–30s screen recording** clicking through Match → Te
 
 ---
 
+## SafeStep (was "masil")  →  `app/assets/projects/safestep/`
+Has a **live demo** already (kh1606.github.io/safestep), so screenshots are optional —
+but 1–3 would make the info page richer. Capture, if you have them:
+1. **YOLO hazard detection** — a street/sidewalk image with detected boxes (step, stair, ramp, grab_bar).
+2. **Depth estimation** — a MiDaS/ZoeDepth heatmap of a stair image (the steepness proxy).
+3. **The hazard map** — a screenshot of the live Leaflet demo with hazards along a route.
+
+---
+
 ## (later projects — to be detailed when we reach them)
-- masil — map demo will be live; screens optional (detection samples, depth output).
 - ai-eval — a sample report: confusion matrix / PR curve / metrics CSV.
 - desktop-tools — the launcher dashboard + one or two sub-apps.
 - aiforus — dashboard map + trends (only what's OK to show publicly).
