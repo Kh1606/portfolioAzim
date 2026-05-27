@@ -20,6 +20,11 @@ import evalkitRoc from '~/assets/projects/evalkit/cls-roc.png';
 import evalkitSegPr from '~/assets/projects/evalkit/seg-pr-curve.png';
 import evalkitDetIou from '~/assets/projects/evalkit/det-iou-histogram.png';
 import evalkitAsrWer from '~/assets/projects/evalkit/asr-wer-histogram.png';
+import seaweedArch from '~/assets/projects/seaweed-gan/architecture.png';
+import seaweedSample1 from '~/assets/projects/seaweed-gan/sample1.jpg';
+import seaweedSample2 from '~/assets/projects/seaweed-gan/sample2.jpg';
+import seaweedSample3 from '~/assets/projects/seaweed-gan/sample3.jpg';
+import seaweedSample4 from '~/assets/projects/seaweed-gan/sample4.jpg';
 
 export const projects = [
   {
@@ -244,29 +249,67 @@ export const projects = [
     slug: 'seaweed-gan',
     title: 'Seaweed GAN',
     blurb:
-      'A GAN that generates synthetic seaweed imagery — a generator and discriminator trained against each other to expand a small source dataset.',
-    tags: ['Python', 'PyTorch', 'GAN', 'Deep Learning'],
+      'A DCGAN that generates synthetic dried-seaweed (gim) sheet images — a generator turns noise into seaweed textures while a discriminator learns to tell real from fake.',
+    tags: ['Python', 'TensorFlow', 'Keras', 'GAN', 'Deep Learning'],
+    github: 'https://github.com/Kh1606/seaweed-gan',
     detail: '/projects/seaweed-gan',
     year: 2024,
     status: 'Research',
     accent: '#2dd4bf',
     pixelColors: ['#14b8a6', '#2dd4bf', '#5eead4'],
+    media: [
+      {
+        src: seaweedArch,
+        width: 756,
+        height: 558,
+        alt: 'GAN setup: generator vs discriminator',
+        caption: 'The GAN setup — generator vs discriminator',
+      },
+      {
+        src: seaweedSample1,
+        width: 512,
+        height: 512,
+        alt: 'Generated dried-seaweed sheet sample 1',
+        caption: 'Generated sample',
+      },
+      {
+        src: seaweedSample2,
+        width: 512,
+        height: 512,
+        alt: 'Generated dried-seaweed sheet sample 2',
+        caption: 'Generated sample',
+      },
+      {
+        src: seaweedSample3,
+        width: 512,
+        height: 512,
+        alt: 'Generated dried-seaweed sheet sample 3',
+        caption: 'Generated sample',
+      },
+      {
+        src: seaweedSample4,
+        width: 512,
+        height: 512,
+        alt: 'Generated dried-seaweed sheet sample 4',
+        caption: 'Generated sample',
+      },
+    ],
     caseStudy: {
-      tagline: 'Generating seaweed imagery with GANs.',
+      tagline: 'Generating dried-seaweed sheets with a DCGAN.',
       problem:
-        'Small image datasets limit downstream models, so I explored generating realistic samples to expand one.',
+        'I wanted to see how well a GAN could synthesize a very texture-heavy, niche subject — dried-seaweed (gim) sheets — and learn DCGAN training hands-on.',
       whatItDoes:
-        'Trains a Generative Adversarial Network — a generator and a discriminator competing — to synthesize new seaweed images from a source set.',
-      stack: ['Python', 'PyTorch', 'GAN'],
-      role: ['Generator / discriminator design', 'Training loop', 'Evaluation'],
+        'Trains a DCGAN: a generator turns random noise into seaweed-sheet textures while a discriminator learns to tell real sheets from generated ones; the two compete until the fakes look convincing. Produces 512×512 and upscaled 1600×1600 samples.',
+      stack: ['Python', 'TensorFlow', 'Keras', 'DCGAN', 'NumPy', 'Matplotlib'],
+      role: ['Generator / discriminator design', 'Training loop', 'Sample generation'],
       highlights: [
         {
           title: 'Adversarial training',
-          text: 'The generator learns to fool a discriminator that learns to spot fakes — converging toward realistic samples.',
+          text: 'The generator learns to fool a discriminator that learns to spot fakes — converging toward realistic seaweed textures.',
         },
         {
-          title: 'Augmentation use case',
-          text: 'Synthetic images aimed at expanding a limited real dataset for downstream training.',
+          title: 'Texture-faithful output',
+          text: 'Captures the speckled, fibrous look of real gim sheets, not just blurry blobs.',
         },
       ],
     },

@@ -22,6 +22,8 @@ import {
   SiGithub,
   SiUltralytics,
   SiTailwindcss,
+  SiTensorflow,
+  SiKeras,
 } from 'react-icons/si';
 
 // Normalized-substring → brand icon. Order matters: more specific keys first so a
@@ -51,6 +53,8 @@ const ICON_MAP = [
   ['yolo', SiUltralytics],
   ['supabase', SiSupabase],
   ['tailwind', SiTailwindcss],
+  ['tensorflow', SiTensorflow],
+  ['keras', SiKeras],
   ['docker', SiDocker],
   ['react', SiReact],
   ['vite', SiVite],
