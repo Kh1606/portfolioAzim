@@ -16,7 +16,7 @@ export const projects = [
     slug: 'pitchmath',
     title: 'PitchMath',
     blurb:
-      'A football analytics & betting platform. A pipeline pulls fixtures and stats from API-Football into Postgres, and a Streamlit app turns them into match, team and player betting insight.',
+      'A football analytics platform. A pipeline pulls fixtures and stats from API-Football into Postgres, and a Streamlit app turns them into match, team and player insight.',
     tags: ['Python', 'Streamlit', 'PostgreSQL', 'API-Football', 'ML'],
     github: 'https://github.com/Kh1606/pitchmath',
     detail: '/projects/pitchmath',
@@ -25,11 +25,11 @@ export const projects = [
     accent: '#34d399',
     pixelColors: ['#10b981', '#34d399', '#6ee7b7'],
     caseStudy: {
-      tagline: 'A football analytics & betting platform, end to end.',
+      tagline: 'A football analytics platform, end to end.',
       problem:
-        'Betting-insight tools are scattered and shallow. I wanted one place that ingests raw match data and turns it into structured, comparable signals across many leagues.',
+        'Football stats are scattered across sites and shallow. I wanted one place that ingests raw match data and turns it into structured, comparable signals across many leagues.',
       whatItDoes:
-        'An extraction pipeline pulls fixtures, team and player stats from API-Football into a single Postgres database. A Streamlit app then renders match analyzers, team form, player props and a "Team DNA" radar on top of it.',
+        'An extraction pipeline pulls fixtures, team and player stats from API-Football into a single Postgres database. A Streamlit app then renders match analyzers, team form, player stats and a "Team DNA" radar on top of it.',
       stack: ['Python', 'Streamlit', 'PostgreSQL', 'Docker', 'API-Football', 'Plotly'],
       role: ['Solo developer', 'Pipeline architecture', 'Data modeling', 'UI'],
       highlights: [
@@ -42,8 +42,8 @@ export const projects = [
           text: 'Ships with a docker-compose Postgres and a SQLite fallback, plus a migration path between the two backends.',
         },
         {
-          title: 'Betting-first UI',
-          text: 'Analyzers compute form lines, over/under and BTTS splits — the stats a bettor actually reads, not raw dumps.',
+          title: 'Analytics-first UI',
+          text: 'Analyzers compute form lines, scoring trends and home/away splits — the stats fans and analysts actually read, not raw dumps.',
         },
       ],
     },
