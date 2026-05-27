@@ -114,35 +114,39 @@ export const projects = [
     slug: 'safestep',
     title: 'SafeStep',
     blurb:
-      'Seoul pedestrian-hazard mapping. Extracts walkability features from OpenStreetMap and combines a YOLOv11 hazard detector with monocular depth estimation on stairs.',
-    tags: ['Python', 'YOLOv11', 'PyTorch', 'OpenStreetMap', 'Folium'],
+      'Accessible pedestrian routing for Seoul. Fuses OpenStreetMap walkways, public accessibility facilities (elevators, lifts, accessible toilets) and AI-detected street hazards, routed with a custom Valhalla engine behind a FastAPI web app.',
+    tags: ['Python', 'FastAPI', 'Valhalla', 'YOLO', 'Leaflet'],
     github: 'https://github.com/Kh1606/safestep',
     url: 'https://kh1606.github.io/safestep/',
     detail: '/projects/safestep',
     year: 2025,
-    status: 'Prototype',
+    status: 'Prototype (Seongdong-gu)',
     accent: '#fbbf24',
     pixelColors: ['#f59e0b', '#fbbf24', '#fcd34d'],
     caseStudy: {
-      tagline: 'Mapping what makes Seoul hard to walk.',
+      tagline: 'Wheelchair-friendly walking routes for Seoul.',
       problem:
-        'Pedestrian accessibility data — stairs, steep ramps, missing crossings — is sparse and rarely machine-readable.',
+        'Normal map routing ignores whether a path is actually walkable for someone with limited mobility — stairs, missing ramps, broken sidewalks, or where the nearest elevator or accessible toilet is.',
       whatItDoes:
-        'Pulls pedestrian features (stairs, elevators, crossings) from a Seoul OSM extract, trains a YOLOv11 detector for accessibility features (step, stair, grab bar, ramp), and runs MiDaS / ZoeDepth depth estimation to gauge how steep a step is. A Leaflet demo overlays hazards along a route.',
-      stack: ['Python', 'Ultralytics YOLOv11', 'PyTorch', 'osmium', 'Folium / Leaflet'],
-      role: ['Data extraction', 'Model training', 'Depth estimation', 'Demo'],
+        'SafeStep fuses OpenStreetMap walkways, Seoul open-data accessibility POIs (elevators, wheelchair lifts, accessible toilets, escalators) and AI-detected street hazards, then routes over them with a custom Valhalla profile. A FastAPI app with a Leaflet map (prototyped in Seongdong-gu, 성동구) lets you see hazards and plan accessible routes.',
+      stack: ['Python', 'FastAPI', 'Valhalla', 'YOLO (Ultralytics)', 'Leaflet', 'OpenStreetMap', 'Docker'],
+      role: ['Solo developer', 'Routing engine', 'Data pipeline', 'AI hazard detection', 'Web app'],
       highlights: [
         {
-          title: 'OSM → features',
-          text: 'An osmium handler turns a raw .pbf extract into tidy pedestrian-feature CSVs.',
+          title: 'Accessibility-aware routing',
+          text: 'A custom Valhalla profile routes over real walkways and avoids detected hazards, instead of treating every path as equally walkable.',
         },
         {
-          title: 'Detection + depth',
-          text: 'Combines object detection with monocular depth, so a detected "stair" also carries an estimate of how steep it is.',
+          title: 'Public data, fused',
+          text: 'Pulls and cleans Seoul open-data POIs — elevators, wheelchair lifts, accessible toilets, escalators — into live map layers.',
         },
         {
-          title: 'Route-level demo',
-          text: 'A small Leaflet map overlays detected hazards along a walking route.',
+          title: 'AI hazard detection',
+          text: 'A YOLO model spots pedestrian hazards in street imagery and drops geo-located hazard points onto the map.',
+        },
+        {
+          title: 'Full stack, dockerised',
+          text: 'FastAPI backend + Leaflet frontend with Kakao geocoding, packaged with docker-compose.',
         },
       ],
     },
