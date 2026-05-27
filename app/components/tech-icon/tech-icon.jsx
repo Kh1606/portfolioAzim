@@ -21,6 +21,7 @@ import {
   SiPlotly,
   SiGithub,
   SiUltralytics,
+  SiTailwindcss,
 } from 'react-icons/si';
 
 // Normalized-substring → brand icon. Order matters: more specific keys first so a
@@ -49,6 +50,7 @@ const ICON_MAP = [
   ['ultralytics', SiUltralytics],
   ['yolo', SiUltralytics],
   ['supabase', SiSupabase],
+  ['tailwind', SiTailwindcss],
   ['docker', SiDocker],
   ['react', SiReact],
   ['vite', SiVite],

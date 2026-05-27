@@ -233,19 +233,6 @@ export const projects = [
     },
   },
   {
-    slug: 'clt-plus',
-    title: 'CLT+',
-    blurb:
-      'A unified viewer for Korean public-institution notices — a React/Vite UI over a hand-maintained region tree of 245 sub-entities and 372 source links.',
-    tags: ['React', 'Vite', 'Supabase', 'GitHub Pages'],
-    github: 'https://github.com/Kh1606/clt-plus',
-    url: 'https://kh1606.github.io/clt-plus/',
-    year: 2025,
-    status: 'Active',
-    accent: '#818cf8',
-    pixelColors: ['#6366f1', '#818cf8', '#a5b4fc'],
-  },
-  {
     slug: 'insomnia',
     title: 'Insomnia',
     blurb:
@@ -289,17 +276,41 @@ export const projects = [
     pixelColors: ['#d946ef', '#e879f9', '#f0abfc'],
   },
   {
-    slug: 'clt-plus2',
-    title: 'CLT+2',
+    slug: 'noticehub',
+    title: 'NoticeHub',
     blurb:
-      'A UI-focused fork of CLT+ on a reduced dataset — a lighter React/Vite notices viewer pointing at a separate notices table.',
-    tags: ['React', 'Vite', 'Supabase'],
-    github: 'https://github.com/Kh1606/clt-plus2',
-    url: 'https://kh1606.github.io/clt-plus2/',
+      'A unified viewer for Korean public-institution announcements (공지사항). Scheduled scrapers feed a Supabase notices table and a React + Tailwind UI lets you browse 245+ sources by region — deployed live on GitHub Pages.',
+    tags: ['React', 'Tailwind', 'Supabase', 'Vite', 'GitHub Actions'],
+    github: 'https://github.com/Kh1606/noticehub',
+    url: 'https://kh1606.github.io/noticehub/',
+    detail: '/projects/noticehub',
     year: 2025,
     status: 'Active',
     accent: '#fb923c',
     pixelColors: ['#f97316', '#fb923c', '#fdba74'],
+    caseStudy: {
+      tagline: 'Every public-institution notice, in one place.',
+      problem:
+        'Korean public-institution announcements are scattered across hundreds of separate websites — there is no single place to track them.',
+      whatItDoes:
+        'NoticeHub aggregates announcements (공지사항) from 245+ public-institution sources, organized by region. Scheduled scrapers (GitHub Actions) collect notices into a Supabase table, a React + Tailwind UI browses and filters them, and a monthly job reports activity.',
+      stack: ['React', 'Vite', 'Tailwind', 'Supabase', 'GitHub Actions', 'GitHub Pages'],
+      role: ['Solo developer', 'Scrapers', 'Data model (Supabase)', 'UI'],
+      highlights: [
+        {
+          title: 'Region-organized',
+          text: 'Hundreds of public-institution sources arranged by region and sub-entity, so notices are easy to find.',
+        },
+        {
+          title: 'Automated collection',
+          text: 'Scheduled GitHub Actions scrape new notices into Supabase and generate a monthly report — no servers to run.',
+        },
+        {
+          title: 'Serverless & free',
+          text: 'A React/Vite front-end on GitHub Pages reads Supabase directly — fully serverless and free to host.',
+        },
+      ],
+    },
   },
 ];
 
