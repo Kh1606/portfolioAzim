@@ -334,16 +334,42 @@ export const projects = [
     },
   },
   {
-    slug: 'desktop-tools',
-    title: 'Desktop Tools',
+    slug: 'tooldock',
+    title: 'ToolDock',
     blurb:
-      'An Electron dashboard that launches a suite of small desktop utilities — audio, CSV analysis, hashing, image analysis and a system-info app with an Express backend.',
-    tags: ['Electron', 'Node.js', 'Express', 'JavaScript'],
-    github: 'https://github.com/Kh1606/desktop-tools',
+      'A dashboard that launches a set of small utilities — audio, CSV analyser, hashing, image analysis and a system-info app. Built as Electron mini-apps; the browser-based ones run live on the web.',
+    tags: ['JavaScript', 'Electron', 'Node.js', 'Express'],
+    github: 'https://github.com/Kh1606/tooldock',
+    url: 'https://kh1606.github.io/tooldock/',
+    detail: '/projects/tooldock',
     year: 2025,
     status: 'Prototype',
     accent: '#e879f9',
     pixelColors: ['#d946ef', '#e879f9', '#f0abfc'],
+    caseStudy: {
+      tagline: 'A dock of small, single-purpose tools.',
+      problem:
+        'Little day-to-day tasks — hashing a string, eyeballing a CSV, checking an audio clip or image — usually mean hunting for a random website each time.',
+      whatItDoes:
+        'ToolDock is a dashboard that launches a set of self-contained mini-apps: an audio tool, a CSV analyser, a hashing tool, an image-analysis tool, and a system-info app (Node/Express). Each lives in its own folder and runs independently; the four browser-based ones are deployed live, while system-info runs locally with its backend.',
+      stack: ['JavaScript', 'HTML / CSS', 'Bootstrap', 'Electron', 'Node.js', 'Express'],
+      role: ['Solo developer', 'Launcher + sub-apps', 'Static web deploy'],
+      highlights: [
+        {
+          title: 'Self-contained sub-apps',
+          text: 'A Bootstrap launcher opens each tool from its own folder — add or remove a tool without touching the others.',
+        },
+        {
+          title: 'Runs in the browser',
+          text: 'The audio, CSV-analyser, hashing and image-analysis tools are pure client-side, so they work live on the web — no install.',
+        },
+        {
+          title: 'Desktop + web',
+          text: 'Packaged as Electron mini-apps for desktop, but the static ones deploy straight to GitHub Pages.',
+        },
+      ],
+      note: 'Live demo covers the four browser-based tools; system-info needs its Express backend, so it runs locally only.',
+    },
   },
   {
     slug: 'noticehub',
