@@ -25,6 +25,9 @@ import seaweedSample1 from '~/assets/projects/seaweed-gan/sample1.jpg';
 import seaweedSample2 from '~/assets/projects/seaweed-gan/sample2.jpg';
 import seaweedSample3 from '~/assets/projects/seaweed-gan/sample3.jpg';
 import seaweedSample4 from '~/assets/projects/seaweed-gan/sample4.jpg';
+import insomniaCrop from '~/assets/projects/insomnia/cropped-graph.png';
+import insomniaGray from '~/assets/projects/insomnia/grayscale.png';
+import insomniaCsv from '~/assets/projects/insomnia/csv-output.png';
 
 export const projects = [
   {
@@ -351,11 +354,35 @@ export const projects = [
     blurb:
       'An automated pipeline that extracts sleep data from tracking-app screenshots (e.g. Samsung Health) and turns it into structured CSVs for insomnia analysis.',
     tags: ['Python', 'OpenCV', 'Pandas', 'Automation'],
+    github: 'https://github.com/Kh1606/insomnia',
     detail: '/projects/insomnia',
     year: 2024,
     status: 'Research',
     accent: '#fb7185',
     pixelColors: ['#f43f5e', '#fb7185', '#fda4af'],
+    media: [
+      {
+        src: insomniaCrop,
+        width: 1084,
+        height: 544,
+        alt: 'Cropped sleep-stage graph extracted from a sleep-app screenshot',
+        caption: 'Cropped sleep-stage graph',
+      },
+      {
+        src: insomniaGray,
+        width: 678,
+        height: 602,
+        alt: 'Grayscaled graph prepared for value extraction',
+        caption: 'Grayscaled for extraction',
+      },
+      {
+        src: insomniaCsv,
+        width: 398,
+        height: 312,
+        alt: 'Structured per-minute sleep-status CSV output',
+        caption: 'Structured per-minute output',
+      },
+    ],
     caseStudy: {
       tagline: 'Turning sleep-app screenshots into data.',
       problem:
