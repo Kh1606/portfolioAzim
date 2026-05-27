@@ -77,17 +77,33 @@ export function ProjectCard({ project, index = 0 }) {
             {overflow > 0 && <li className={classes(styles.tag, styles.tagMore)}>+{overflow}</li>}
           </ul>
 
-          {github && (
-            <a
-              className={styles.codeButton}
-              href={github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View ${title} source on GitHub`}
-            >
-              <Icon className={styles.codeIcon} icon="github" />
-              <span>Code</span>
-            </a>
+          {(url || github) && (
+            <div className={styles.actions}>
+              {url && (
+                <a
+                  className={classes(styles.actionButton, styles.demoButton)}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open ${title} live demo`}
+                >
+                  <Icon className={styles.actionIcon} icon="link" />
+                  <span>Demo</span>
+                </a>
+              )}
+              {github && (
+                <a
+                  className={styles.actionButton}
+                  href={github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View ${title} source on GitHub`}
+                >
+                  <Icon className={styles.actionIcon} icon="github" />
+                  <span>Code</span>
+                </a>
+              )}
+            </div>
           )}
         </div>
       </div>

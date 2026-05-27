@@ -122,11 +122,10 @@
 
 .footer {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 14px;
   margin-top: auto;
-  padding-top: 8px;
+  padding-top: 14px;
 }
 
 .tags {
@@ -155,15 +154,19 @@
   border-color: color-mix(in lab, var(--cardAccent) 40%, transparent);
 }
 
-/* GitHub button — sits above the stretched link so its own click wins */
-.codeButton {
+/* Action buttons — sit above the stretched link so their own clicks win */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actionButton {
   position: relative;
   z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  flex-shrink: 0;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 8px;
   font-size: 13px;
   font-weight: var(--fontWeightMedium);
@@ -177,13 +180,25 @@
     background var(--durationXS) ease;
 }
 
-.codeButton:hover {
+.actionButton:hover {
   color: var(--cardAccent);
   border-color: color-mix(in lab, var(--cardAccent) 60%, transparent);
   background: color-mix(in lab, var(--cardAccent) 10%, transparent);
 }
 
-.codeIcon {
+/* Demo button is the primary action — accent-tinted */
+.demoButton {
+  color: var(--cardAccent);
+  border-color: color-mix(in lab, var(--cardAccent) 45%, transparent);
+  background: color-mix(in lab, var(--cardAccent) 12%, transparent);
+}
+
+.demoButton:hover {
+  background: color-mix(in lab, var(--cardAccent) 22%, transparent);
+  border-color: var(--cardAccent);
+}
+
+.actionIcon {
   width: 18px;
   height: 18px;
 }

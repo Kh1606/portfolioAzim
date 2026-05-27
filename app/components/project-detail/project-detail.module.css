@@ -139,6 +139,9 @@
 }
 
 .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-family: var(--monoFontStack);
   font-size: 13px;
   padding: 6px 10px;
@@ -146,6 +149,13 @@
   color: var(--textBody);
   border: 1px solid color-mix(in lab, var(--text) 14%, transparent);
   background: color-mix(in lab, var(--text) 4%, transparent);
+}
+
+.chipIcon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  opacity: 0.9;
 }
 
 .highlightGrid {
@@ -187,6 +197,36 @@
   background: color-mix(in lab, var(--detailAccent) 8%, transparent);
   color: var(--textBody);
   font-size: 15px;
+}
+
+/* GALLERY -------------------------------------------------------------- */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spaceL);
+
+  @media (--mediaMobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.shot {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid color-mix(in lab, var(--text) 12%, transparent);
+  background: color-mix(in lab, var(--backgroundLight) 50%, transparent);
+}
+
+.shotImage {
+  display: block;
+  width: 100%;
+}
+
+.caption {
+  padding: var(--spaceS) var(--spaceM);
+  font-size: 13px;
+  color: var(--textLight);
 }
 
 .cta {

@@ -2,7 +2,9 @@ import { Link as RouterLink } from '@remix-run/react';
 import { Button } from '~/components/button';
 import { Footer } from '~/components/footer';
 import { Heading } from '~/components/heading';
+import { Image } from '~/components/image';
 import { Text } from '~/components/text';
+import { TechIcon } from '~/components/tech-icon';
 import { ProjectContainer } from '~/layouts/project';
 import { Section } from '~/components/section';
 import { cssProps } from '~/utils/style';
@@ -16,7 +18,7 @@ import styles from './project-detail.module.css';
  * empty placeholder dumps.
  */
 export function ProjectDetail({ project }) {
-  const { title, blurb, github, url, accent, year, status, caseStudy = {} } = project;
+  const { title, blurb, github, url, accent, year, status, media, caseStudy = {} } = project;
   const { tagline, problem, whatItDoes, stack, role, highlights, note } = caseStudy;
 
   const metaItems = [role?.length && role[0], status, year].filter(Boolean);
@@ -89,6 +91,7 @@ export function ProjectDetail({ project }) {
                 <ul className={styles.chips}>
                   {stack.map(item => (
                     <li className={styles.chip} key={item}>
+                      <TechIcon name={item} className={styles.chipIcon} />
                       {item}
                     </li>
                   ))}
@@ -121,6 +124,29 @@ export function ProjectDetail({ project }) {
                     {item.text}
                   </Text>
                 </article>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {media?.length > 0 && (
+          <div className={styles.gallery}>
+            <h2 className={styles.sectionLabel}>Screens</h2>
+            <div className={styles.galleryGrid}>
+              {media.map((shot, index) => (
+                <figure className={styles.shot} key={shot.src || index}>
+                  <Image
+                    className={styles.shotImage}
+                    src={shot.src}
+                    srcSet={shot.srcSet}
+                    width={shot.width}
+                    height={shot.height}
+                    placeholder={shot.placeholder}
+                    alt={shot.alt}
+                    reveal
+                  />
+                  {shot.caption && <figcaption className={styles.caption}>{shot.caption}</figcaption>}
+                </figure>
               ))}
             </div>
           </div>
