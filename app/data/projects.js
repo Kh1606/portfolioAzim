@@ -20,6 +20,7 @@ import evalkitRoc from '~/assets/projects/evalkit/cls-roc.png';
 import evalkitSegPr from '~/assets/projects/evalkit/seg-pr-curve.png';
 import evalkitDetIou from '~/assets/projects/evalkit/det-iou-histogram.png';
 import evalkitAsrWer from '~/assets/projects/evalkit/asr-wer-histogram.png';
+import seaweedFlow from '~/assets/projects/seaweed-gan/howitworks.png';
 import seaweedArch from '~/assets/projects/seaweed-gan/architecture.png';
 import seaweedSample1 from '~/assets/projects/seaweed-gan/sample1.jpg';
 import seaweedSample2 from '~/assets/projects/seaweed-gan/sample2.jpg';
@@ -268,6 +269,13 @@ export const projects = [
     accent: '#2dd4bf',
     pixelColors: ['#14b8a6', '#2dd4bf', '#5eead4'],
     media: [
+      {
+        src: seaweedFlow,
+        width: 986,
+        height: 996,
+        alt: 'How Seaweed GAN works — adversarial training loop diagram',
+        caption: 'How it works — adversarial training loop',
+      },
       {
         src: seaweedArch,
         width: 756,
