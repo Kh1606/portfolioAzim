@@ -38,6 +38,7 @@ import seoulairTs from '~/assets/projects/seoulair/pm25-timeseries.png';
 import seoulairMonthly from '~/assets/projects/seoulair/monthly-pm.png';
 import aiforusFlow from '~/assets/projects/aiforus/howitworks.png';
 import safestepFlow from '~/assets/projects/safestep/howitworks.png';
+import noticehubFlow from '~/assets/projects/noticehub/howitworks.png';
 
 export const projects = [
   {
@@ -520,6 +521,15 @@ export const projects = [
     status: 'Active',
     accent: '#fb923c',
     pixelColors: ['#f97316', '#fb923c', '#fdba74'],
+    media: [
+      {
+        src: noticehubFlow,
+        width: 1025,
+        height: 676,
+        alt: 'NoticeHub architecture — scheduled scrapers, Supabase notices table, React UI',
+        caption: 'How it works — scheduled scrapers → Supabase → UI',
+      },
+    ],
     caseStudy: {
       tagline: 'Every public-institution notice, in one place.',
       problem:
