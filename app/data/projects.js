@@ -40,6 +40,7 @@ import aiforusFlow from '~/assets/projects/aiforus/howitworks.png';
 import safestepFlow from '~/assets/projects/safestep/howitworks.png';
 import noticehubFlow from '~/assets/projects/noticehub/howitworks.png';
 import evalkitFlow from '~/assets/projects/evalkit/howitworks.png';
+import pitchmathFlow from '~/assets/projects/pitchmath/howitworks.png';
 
 export const projects = [
   {
@@ -55,6 +56,13 @@ export const projects = [
     accent: '#34d399',
     pixelColors: ['#10b981', '#34d399', '#6ee7b7'],
     media: [
+      {
+        src: pitchmathFlow,
+        width: 973,
+        height: 638,
+        alt: 'PitchMath architecture — API-Football to Python extractor to Postgres to Streamlit',
+        caption: 'How it works — API-Football → extractor → Postgres → Streamlit',
+      },
       {
         src: pitchmathMatchStats,
         width: 855,
