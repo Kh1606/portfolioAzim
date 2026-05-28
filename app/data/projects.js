@@ -37,6 +37,7 @@ import seoulairCorr from '~/assets/projects/seoulair/correlation.png';
 import seoulairTs from '~/assets/projects/seoulair/pm25-timeseries.png';
 import seoulairMonthly from '~/assets/projects/seoulair/monthly-pm.png';
 import aiforusFlow from '~/assets/projects/aiforus/howitworks.png';
+import safestepFlow from '~/assets/projects/safestep/howitworks.png';
 
 export const projects = [
   {
@@ -161,6 +162,15 @@ export const projects = [
     status: 'Prototype (Seongdong-gu)',
     accent: '#fbbf24',
     pixelColors: ['#f59e0b', '#fbbf24', '#fcd34d'],
+    media: [
+      {
+        src: safestepFlow,
+        width: 1222,
+        height: 1008,
+        alt: 'SafeStep architecture — OSM + accessibility POIs + YOLO hazards into Valhalla and a Leaflet UI',
+        caption: 'How it works — sources → Valhalla + FastAPI → Leaflet UI',
+      },
+    ],
     caseStudy: {
       tagline: 'Wheelchair-friendly walking routes for Seoul.',
       problem:
