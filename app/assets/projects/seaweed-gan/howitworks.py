@@ -1,20 +1,23 @@
 """Render the Seaweed GAN 'how it works' flowchart.
 
 Run from this directory:  python howitworks.py
-Deps:  pip install diagrams   (and Graphviz on PATH)
+Deps:  pip install diagrams cairosvg   (and Graphviz on PATH)
+Icons: brand-colored PNGs under app/assets/_diagram_icons/ (run scripts/gen_diagram_icons.py once).
 """
+import os
 from diagrams import Diagram, Cluster, Edge
 from diagrams.generic.storage import Storage
 from diagrams.generic.compute import Rack
-from diagrams.programming.framework import Flask  # placeholder shape; relabelled
-from diagrams.programming.language import Python
+from diagrams.custom import Custom
 
-graph_attr = {
-    "fontsize": "18",
-    "bgcolor": "white",
-    "pad": "0.4",
-    "splines": "spline",
-}
+ICONS = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "..", "_diagram_icons"))
+
+
+def icon(name: str) -> str:
+    return os.path.join(ICONS, f"{name}.png")
+
+
+graph_attr = {"fontsize": "18", "bgcolor": "white", "pad": "0.4", "splines": "spline"}
 node_attr = {"fontsize": "13"}
 edge_attr = {"fontsize": "11"}
 
@@ -31,17 +34,15 @@ with Diagram(
     real = Storage("Real seaweed\nimages")
 
     with Cluster("Adversarial loop  (TensorFlow / Keras)"):
-        gen = Python("Generator\n(DCGAN)")
-        disc = Python("Discriminator\n(DCGAN)")
+        gen = Custom("Generator\n(DCGAN)", icon("tensorflow"))
+        disc = Custom("Discriminator\n(DCGAN)", icon("keras"))
         loss = Rack("Loss\nreal vs fake")
 
-        # forward
         noise >> Edge(color="#0ea5e9", label="z") >> gen
         gen >> Edge(color="#0ea5e9", label="fake") >> disc
         real >> Edge(color="#10b981", label="real") >> disc
         disc >> Edge(color="#111111") >> loss
 
-        # backward updates (the cycle)
         loss >> Edge(color="#ef4444", style="dashed", label="update D") >> disc
         loss >> Edge(color="#ef4444", style="dashed", label="update G") >> gen
 
