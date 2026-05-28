@@ -26,6 +26,7 @@ import seaweedSample1 from '~/assets/projects/seaweed-gan/sample1.jpg';
 import seaweedSample2 from '~/assets/projects/seaweed-gan/sample2.jpg';
 import seaweedSample3 from '~/assets/projects/seaweed-gan/sample3.jpg';
 import seaweedSample4 from '~/assets/projects/seaweed-gan/sample4.jpg';
+import insomniaFlow from '~/assets/projects/insomnia/howitworks.png';
 import insomniaCrop from '~/assets/projects/insomnia/cropped-graph.png';
 import insomniaGray from '~/assets/projects/insomnia/grayscale.png';
 import insomniaCsv from '~/assets/projects/insomnia/csv-output.png';
@@ -445,6 +446,13 @@ export const projects = [
     accent: '#fb7185',
     pixelColors: ['#f43f5e', '#fb7185', '#fda4af'],
     media: [
+      {
+        src: insomniaFlow,
+        width: 1594,
+        height: 413,
+        alt: 'How Insomnia works: screenshot → OpenCV crop / grayscale / extract → CSV → pandas analysis → matplotlib charts',
+        caption: 'How it works',
+      },
       {
         src: insomniaCrop,
         width: 1084,
