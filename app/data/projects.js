@@ -36,6 +36,7 @@ import ricePredictionExample from '~/assets/projects/rice-leaf/prediction-exampl
 import seoulairCorr from '~/assets/projects/seoulair/correlation.png';
 import seoulairTs from '~/assets/projects/seoulair/pm25-timeseries.png';
 import seoulairMonthly from '~/assets/projects/seoulair/monthly-pm.png';
+import aiforusFlow from '~/assets/projects/aiforus/howitworks.png';
 
 export const projects = [
   {
@@ -104,6 +105,15 @@ export const projects = [
     status: 'In production · aicerti.co.kr',
     accent: '#38bdf8',
     pixelColors: ['#0ea5e9', '#38bdf8', '#7dd3fc'],
+    media: [
+      {
+        src: aiforusFlow,
+        width: 1681,
+        height: 467,
+        alt: 'AIFORUS architecture — clt/scr collector, ML scoring, Postgres, FastAPI, React dashboard',
+        caption: 'How it works — collector → scoring → API → dashboard',
+      },
+    ],
     caseStudy: {
       tagline: 'AI-news intelligence — built solo, shipped to production.',
       problem:
