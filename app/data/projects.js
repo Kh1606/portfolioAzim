@@ -39,6 +39,7 @@ import seoulairMonthly from '~/assets/projects/seoulair/monthly-pm.png';
 import aiforusFlow from '~/assets/projects/aiforus/howitworks.png';
 import safestepFlow from '~/assets/projects/safestep/howitworks.png';
 import noticehubFlow from '~/assets/projects/noticehub/howitworks.png';
+import evalkitFlow from '~/assets/projects/evalkit/howitworks.png';
 
 export const projects = [
   {
@@ -213,6 +214,13 @@ export const projects = [
     accent: '#60a5fa',
     pixelColors: ['#3b82f6', '#60a5fa', '#93c5fd'],
     media: [
+      {
+        src: evalkitFlow,
+        width: 1123,
+        height: 1528,
+        alt: 'EvalKit architecture — CLI dispatches to one of five task evaluators with repeated subsampling',
+        caption: 'How it works — CLI → 5 evaluators → reports + CSV',
+      },
       {
         src: evalkitConfusion,
         width: 800,
