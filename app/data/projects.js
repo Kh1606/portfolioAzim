@@ -30,6 +30,7 @@ import insomniaFlow from '~/assets/projects/insomnia/howitworks.png';
 import insomniaCrop from '~/assets/projects/insomnia/cropped-graph.png';
 import insomniaGray from '~/assets/projects/insomnia/grayscale.png';
 import insomniaCsv from '~/assets/projects/insomnia/csv-output.png';
+import riceFlow from '~/assets/projects/rice-leaf/howitworks.png';
 import riceClasses from '~/assets/projects/rice-leaf/classes.png';
 import riceLoss from '~/assets/projects/rice-leaf/loss-curve.png';
 import ricePredictions from '~/assets/projects/rice-leaf/predictions.png';
@@ -384,6 +385,13 @@ export const projects = [
     accent: '#a3e635',
     pixelColors: ['#84cc16', '#a3e635', '#bef264'],
     media: [
+      {
+        src: riceFlow,
+        width: 1339,
+        height: 626,
+        alt: 'How Rice Leaf Classifier works: Kaggle dataset → torchvision preprocessing → ResNet18 train/val loop → loss curves + predictions',
+        caption: 'How it works',
+      },
       {
         src: riceClasses,
         width: 740,

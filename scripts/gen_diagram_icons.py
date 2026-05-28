@@ -47,6 +47,8 @@ ICONS = [
     ("files", "5D6D7E"),       # generic file/data
     ("googlechrome", "4285F4"), # browser
     ("openai", "412991"),       # ML / model (generic fallback)
+    ("kaggle", "20BEFF"),
+    ("bootstrap", "7952B3"),
 ]
 
 URL = "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/{slug}.svg"
