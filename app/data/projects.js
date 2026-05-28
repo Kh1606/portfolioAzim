@@ -41,6 +41,7 @@ import safestepFlow from '~/assets/projects/safestep/howitworks.png';
 import noticehubFlow from '~/assets/projects/noticehub/howitworks.png';
 import evalkitFlow from '~/assets/projects/evalkit/howitworks.png';
 import pitchmathFlow from '~/assets/projects/pitchmath/howitworks.png';
+import seoulairFlow from '~/assets/projects/seoulair/howitworks.png';
 
 export const projects = [
   {
@@ -583,6 +584,13 @@ export const projects = [
     accent: '#22d3ee',
     pixelColors: ['#06b6d4', '#22d3ee', '#67e8f9'],
     media: [
+      {
+        src: seoulairFlow,
+        width: 1186,
+        height: 626,
+        alt: 'SeoulAir architecture — AQI + weather xlsx through pandas to Jupyter analysis and charts',
+        caption: 'How it works — AQI + weather → pandas → unified CSV → charts',
+      },
       {
         src: seoulairCorr,
         width: 780,
