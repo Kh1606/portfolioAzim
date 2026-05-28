@@ -49,6 +49,8 @@ ICONS = [
     ("openai", "412991"),       # ML / model (generic fallback)
     ("kaggle", "20BEFF"),
     ("bootstrap", "7952B3"),
+    ("html5", "E34F26"),
+    ("javascript", "F7DF1E"),
 ]
 
 URL = "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/{slug}.svg"

@@ -44,6 +44,7 @@ import noticehubFlow from '~/assets/projects/noticehub/howitworks.png';
 import evalkitFlow from '~/assets/projects/evalkit/howitworks.png';
 import pitchmathFlow from '~/assets/projects/pitchmath/howitworks.png';
 import seoulairFlow from '~/assets/projects/seoulair/howitworks.png';
+import tooldockFlow from '~/assets/projects/tooldock/howitworks.png';
 
 export const projects = [
   {
@@ -516,6 +517,15 @@ export const projects = [
     status: 'Prototype',
     accent: '#e879f9',
     pixelColors: ['#d946ef', '#e879f9', '#f0abfc'],
+    media: [
+      {
+        src: tooldockFlow,
+        width: 983,
+        height: 971,
+        alt: 'How ToolDock works: Bootstrap launcher fans out to audio, csv-analyser, hash, image-analysis (deployed to GitHub Pages) and a local-only system-info UI backed by Express',
+        caption: 'How it works',
+      },
+    ],
     caseStudy: {
       tagline: 'A dock of small, single-purpose tools.',
       problem:
